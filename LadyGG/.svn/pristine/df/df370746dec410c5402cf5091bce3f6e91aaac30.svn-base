@@ -1,0 +1,16 @@
+import Vue from 'vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import router from './router'
+import App from './App.vue'
+Vue.use(VueAxios, axios);
+import { Header,Button  } from 'mint-ui';
+
+Vue.component(Header.name, Header);
+Vue.component(Button.name, Button);
+Vue.config.productionTip = false
+
+new Vue({
+  router,
+  render: h => h(App),
+}).$mount('#app')

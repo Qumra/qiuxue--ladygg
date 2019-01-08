@@ -1,0 +1,15 @@
+<div class="box">
+    <form class="login-box" name="loginFrom" novalidate>
+        <p class="login-title">后台登陆</p>
+        <div class="fjs">
+            <input name="username" type="text" placeholder="用户名" class="input-box" ng-model="username" required>
+        </div>
+        <span class="hint hpa" ng-show="loginFrom.username.$invalid">*</span>
+        <div>
+            <input type="password" name="password" placeholder="密码" class="input-box" ng-model="password" required>
+        </div>
+        <span class="hint hpb" ng-show="loginFrom.password.$invalid">*</span>
+        <P class="info" ng-show="show">{{message}}</P>
+        <button class="btn btn-primary gin" ng-click="login()">登&ensp;陆</button>
+    </form>
+</div>

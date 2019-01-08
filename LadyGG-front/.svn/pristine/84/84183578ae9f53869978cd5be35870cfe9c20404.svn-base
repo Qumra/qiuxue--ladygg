@@ -1,0 +1,92 @@
+<div class="pas">
+    <div class="RLD-box">
+        <div class="RLD-title fas top-rou">
+            新增
+        </div>
+        <div class="RLD-word">
+            <div class="fas RLD-input">
+                <p class="input-titie">标题名称</p>
+                <input type="text" class="input-box">
+            </div>
+            <div class="RLD-che">
+                <div class="che-father">
+                    <div class="ffj">
+                        <div class="fjs che-top">
+                            <input type="checkbox">
+                            <b>业务管理</b>
+                        </div>
+                        <div class="fjs">
+                            <input type="checkbox">
+                            <span>实名认证</span>
+                        </div>
+                        <div class="fjs">
+                            <input type="checkbox">
+                            <span>财产管理</span>
+                        </div>
+                        <div class="fjs">
+                            <input type="checkbox">
+                            <span>债权管理</span>
+                        </div>
+                    </div>
+                    <div class="ffj">
+                        <div class="fjs che-top">
+                            <input type="checkbox">
+                            <b>业务管理</b>
+                        </div>
+                        <div class="fjs">
+                            <input type="checkbox">
+                            <span>实名认证</span>
+                        </div>
+                        <div class="fjs">
+                            <input type="checkbox">
+                            <span>财产管理</span>
+                        </div>
+                        <div class="fjs">
+                            <input type="checkbox">
+                            <span>债权管理</span>
+                        </div>
+                    </div>
+                    <div class="ffj">
+                        <div class="fjs che-top">
+                            <input type="checkbox">
+                            <b>业务管理</b>
+                        </div>
+                        <div class="fjs">
+                            <input type="checkbox">
+                            <span>实名认证</span>
+                        </div>
+                        <div class="fjs">
+                            <input type="checkbox">
+                            <span>财产管理</span>
+                        </div>
+                        <div class="fjs">
+                            <input type="checkbox">
+                            <span>债权管理</span>
+                        </div>
+                    </div>
+                    <div class="ffj">
+                        <div class="fjs che-top">
+                            <input type="checkbox">
+                            <b>业务管理</b>
+                        </div>
+                        <div class="fjs">
+                            <input type="checkbox">
+                            <span>实名认证</span>
+                        </div>
+                        <div class="fjs">
+                            <input type="checkbox">
+                            <span>财产管理</span>
+                        </div>
+                        <div class="fjs">
+                            <input type="checkbox">
+                            <span>债权管理</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="RLD-btns">
+                <button class="btn btn-success RLD-btn">保存</button>
+                <button class="btn btn-danger RLD-btn">取消</button>
+            </div>
+        </div>
+    </div>

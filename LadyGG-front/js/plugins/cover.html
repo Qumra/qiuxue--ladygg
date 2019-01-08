@@ -1,0 +1,36 @@
+<div>
+    <div class="video-row fas">
+        <span class="hint">*</span>
+        <b class="input-title">封&emsp;&emsp;面</b>
+        <input type="file" id="vuoload" name="file" class="add-file" accept="image/*">
+        <button class="btn btn-primary add-btn">选择文件</button>
+        <p>（上传文件在5M以内）</p>
+    </div>
+    <div class="video-cover">
+        <p>配图预览</p>
+        <div class="video-img">
+            <img ng-src="{{vsrc}}" id="vimages">
+        </div>
+        <table class="table bordered">
+            <tr style="background-color:gray">
+                <th class="text-center bordered">图片名</th>
+                <th class="text-center bordered">大小</th>
+                <th class="text-center bordered">进度</th>
+                <th class="text-center bordered">状态</th>
+                <th class="text-center bordered">操作</th>
+            </tr>
+            <tr>
+                <td class="son-vertical text-center bordered" ng-bind-html="name | lineFeed : 26"></td>
+                <td class="son-vertical text-center bordered">{{size}}</td>
+                <td class="son-vertical text-center bordered">
+                    <progress id="pro" value={{pro}} max='100'></progress>
+                </td>
+                <td class="son-vertical text-center bordered">{{upload}}</td>
+                <td class="son-vertical text-center bordered">
+                    <button id="load" class="btn btn-primary table-btn" ng-click="load()" ng-disabled="loaddisabled">上传</button>
+                    <button class="btn btn-warning table-btn" ng-click="del()">删除</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="box">
+    <form class="login-box">
+        <p class="login-title">后台登陆</p>
+        <div>
+            <input type="text" name="username" placeholder="用户名" class="input-box">
+        </div>
+        <div>
+            <input type="password" name="password" placeholder="密码" class="input-box">
+        </div>
+        <P class="info">密码错误</P>
+        <button class="btn gin">登陆</button>
+    </form>
+</div>

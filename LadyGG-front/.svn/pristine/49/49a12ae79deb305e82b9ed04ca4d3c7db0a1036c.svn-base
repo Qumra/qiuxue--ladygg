@@ -1,0 +1,104 @@
+angular.module("myApp").controller('backstageCtrl',
+    function ($state, moduleRes, userRes) {
+        /***********
+         **常用数据**
+         ***********/
+        var vm = this;
+        vm.oneAtATime = true;
+        /***********
+         **登陆数据**
+         ***********/
+        //用户、角色
+        userData = sessionStorage.getItem('userData');
+        vm.userData = JSON.parse(userData);
+        // console.log(vm.userData.roleId)
+        getmodule = function () {
+            let Data = {
+                size: 999
+            }
+            moduleRes.roldeLook(vm.userData.roleId, Data).then(res => {
+                    console.log(res)
+                    if (res.data.code === 0) {
+                        //菜单数据
+                        let menu = res.data.data.data;
+                        // console.log(menu)
+                        //主菜单
+                        vm.groups = [];
+                        //1级菜单
+                        let group = {};
+                        //2级菜单
+                        let second = {};
+                        //遍历出1级菜单
+                        angular.forEach(menu, i => {
+                            if (i.parentId === 0) {
+                                group = {
+                                    id: i.id,
+                                    title: i.moduleName,
+                                    content: [],
+                                    open: false
+                                }
+                                //添加进菜单
+                                vm.groups.push(group);
+                            }
+                        });
+                        // 遍历出2级菜单
+                        angular.forEach(vm.groups, o => {
+                            angular.forEach(menu, i => {
+                                if (o.id === i.parentId) {
+                                    second = {
+                                        title: i.moduleName,
+                                        url: i.moduleUrl
+                                    }
+                                    //添加进1级菜单
+                                    o.content.push(second);
+                                }
+                            })
+                        })
+                    };
+                    judge();
+                })
+                .catch(err => {
+                    console.log(err);
+                    console.log('菜单数据请求服务器失败')
+                });
+        };
+        getmodule();
+        /***********
+         **状态保存**
+         ***********/
+        //风琴菜单状态保存
+        vm.clickopen = function (index) {
+            sessionStorage.setItem("open", index)
+        }
+        //侧边栏高亮
+        vm.bright = function (a, b) {
+            angular.forEach(vm.groups, i => {
+                angular.forEach(i.content, r => {
+                    r.isBackColor = false
+                })
+            })
+            vm.groups[a].content[b].isBackColor = true;
+            sessionStorage.setItem("i", a)
+            sessionStorage.setItem("r", b)
+        }
+        i = sessionStorage.getItem("i")
+        r = sessionStorage.getItem("r")
+        //判断状态保存和侧边栏高亮
+        judge = function () {
+            if (window.sessionStorage.getItem("open")) {
+                open = parseInt(window.sessionStorage.getItem("open"))
+                vm.groups[open].open = true;
+            }
+            if (i && r) {
+                vm.groups[i].content[r].isBackColor = true;
+            }
+        }
+        /***********
+         **退出登陆**
+         ***********/
+        vm.esc = function () {
+            userRes.logout().then(res => {
+                console.log(res)
+            })
+        }
+    })

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        .main {
+            margin: 0 auto;
+            width: 1000px;
+            /*margin-top:10px;*/
+
+        }
+
+        .isFixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="top" id="top">
+            <img src="images/top.png" alt="" />
+        </div>
+        <div class="nav" id="fixedHeaderRoot" :class="headerFixed?'isFixed':''">
+            <img src="images/nav.png" alt="" />
+        </div>
+        <div class="main" :style="{marginTop:topHeight+'px'}">
+            <img src="images/main.png" alt="" />
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="https://cdn.staticfile.org/vue/2.5.17-beta.0/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            headerFixed: false,
+            topHeight: 0,
+        },
+        mounted() {
+            // handleScroll为页面滚动的监听回调
+            window.addEventListener('scroll', this.handleScroll);
+            // 监听dom渲染完成
+            this.$nextTick(function () {
+                // 这里fixedHeaderRoot是吸顶元素的ID
+                let header = document.getElementById("fixedHeaderRoot");
+                // 这里要得到吸顶元素的距离和元素自身的高度
+                this.offsetTop = header.offsetTop;
+                this.offsetHeight = header.offsetHeight;
+                console.log("offsetTop:" + this.offsetTop + "," + this.offsetHeight);
+            });
+        },
+
+        methods: {
+            handleScroll() {
+                // 得到页面滚动的距离
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+                // 判断页面滚动的距离是否大于吸顶元素的位置
+                if (scrollTop >= this.offsetTop) {
+                    this.headerFixed = true;
+                    this.topHeight = this.offsetHeight
+                } else {
+                    this.headerFixed = false;
+                    this.topHeight = 0
+                }
+            },
+        },
+        // destroyed回调中移除监听
+        destroyed() {
+            window.removeEventListener('scroll', this.handleScroll);
+        },
+    })
+</script>

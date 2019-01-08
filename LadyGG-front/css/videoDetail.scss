@@ -1,0 +1,145 @@
+.video-box {
+    margin-bottom: 100px;
+    border: solid 1px #e9e9e9;
+    border-radius: 8px;
+
+    .video-title {
+        padding: 0 30px;
+        height: 40px;
+        background-color: #616663;
+        color: #fff;
+    }
+
+    .video-word {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 100px;
+
+        .user-img {
+
+
+            .add-img {
+                position: relative;
+                left: 20px;
+                display: inline-block;
+                margin-bottom: 10px;
+                padding: 10px;
+                line-height: 30px;
+                vertical-align: middle;
+                border: 5px solid #cccccc;
+            }
+
+            #images {
+                max-width: 70px;
+            }
+        }
+
+        .video-input {
+            margin: 10px 0;
+
+            .input-title {
+                margin-right: 20px;
+            }
+        }
+
+        .input-btn {
+            width: 140px;
+        }
+
+        .video-cover {
+            margin: 10px 0;
+            padding-left: 87px;
+
+            .video-img {
+                margin: 10px 0 25px 0;
+                width: 300px;
+            }
+
+            #vimages {
+                max-height: 200px;
+            }
+
+            .bordered {
+                border: 1px solid #ddd;
+
+                .son-vertical {
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        .video-row {
+            margin: 10px 0;
+
+            .input-title {
+                margin-right: 20px;
+            }
+
+            .input-box {
+                width: calc(100% - 100px);
+            }
+
+            .txt-box {
+                width: calc(100% - 100px);
+                height: 50px;
+            }
+
+            .add-file {
+                margin-left: 0;
+            }
+
+            .add-btn {
+                margin-left: -82px;
+            }
+
+            .video-url {
+                padding: 40px 60px;
+                width: calc(100% - 100px);
+                height: 340px;
+                border: solid 1px #A9A9A9;
+
+                .url-block {
+                    line-height: 30px;
+
+                    .url-title {
+                        margin-right: 20px;
+                        font-size: 20px;
+                    }
+                }
+
+                .vhiht {
+                    margin-top: 10px;
+                    font-size: 12px;
+                    color: #ff0000;
+                }
+
+            }
+
+            .video-center {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .video-size {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 30px;
+                    max-height: 220px;
+                }
+            }
+        }
+    }
+}
+
+.video-btn {
+    margin: 20px 0;
+    text-align: center;
+
+    .off-btn {
+        margin-left: 70px;
+    }
+}
+
+#videoInt {
+    width: calc(100% - 100px);
+}

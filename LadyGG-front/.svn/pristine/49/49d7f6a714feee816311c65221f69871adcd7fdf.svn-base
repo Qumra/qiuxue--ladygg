@@ -1,0 +1,40 @@
+<div class="pas">
+    <form name="ACDFrom" class="ACD-box" novalidate>
+        <div class="ACD-title fas top-rou">
+            {{vm.title}}
+        </div>
+        <div class="ACD-word">
+            <div class="ACD-input fas">
+                <span class="hint">*</span>
+                <p class="input-titie">登陆名</p>
+                <input name="accountName" type="text" placeholder="请输入登陆名" class="input-box" ng-model="vm.accountName"
+                    required>
+            </div>
+            <div class="ACD-input fas">
+                <span class="hint">*</span>
+                <p class="input-titie">密码</p>
+                <input name="password" type="password" placeholder="6-20个字符" class="input-box" ng-model="vm.password"
+                    required>
+            </div>
+            <div class="ACD-input fas">
+                <span class="hint">*</span>
+                <p class="input-titie">确定密码</p>
+                <input name="passwords" type="password" placeholder="再次输入密码" class="input-box" ng-model="vm.passwords"
+                    required>
+            </div>
+            <div class="ACD-input fas">
+                <span class="hint">*</span>
+                <p class="input-titie">角色</p>
+                <select ng-model="vm.roleId" ng-options="x.id as x.roleName for x in vm.roleSclect" required>
+                    <option value="">请选择</option>
+                </select>
+            </div>
+            <p class="hints" ng-show="vm.show">密码不一致</p>
+            <p ng-show="!vm.show" style="height:22px;"></p>
+            <div class="ACD-btn fas">
+                <button class="btn btn-success" ng-disabled="ACDFrom.$invalid" ng-click="vm.decide()">确定</button>
+                <button style="margin-left:30px;" class="btn btn-danger" ng-click="vm.gobay()">取消</button>
+            </div>
+        </div>
+    </form>
+</div>

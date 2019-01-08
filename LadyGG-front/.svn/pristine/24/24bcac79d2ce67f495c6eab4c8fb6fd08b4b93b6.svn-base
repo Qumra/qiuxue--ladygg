@@ -1,0 +1,96 @@
+<div class="pas">
+    <div class="article-box">
+        <div class="box-top fjs">
+            <div class="fjs">
+                <b class="input-title">标题</b>
+                <input class="input-box" type="text" ng-model="vm.params.title">
+            </div>
+            <div class="fjs">
+                <b class="input-title">作者</b>
+                <input class="input-box" type="text" ng-model="vm.params.author">
+            </div>
+            <div class="fjs">
+                <b class="input-title">点赞数</b>
+                <input class="input-box" type="text" ng-model="vm.params.praiseBegin" ng-class="{'input-border':vm.params.praiseBegin>vm.params.praiseEnd}">
+                <div class="blank">~</div>
+                <input class="input-box" type="text" ng-model="vm.params.praiseEnd" ng-class="{'input-border':vm.params.praiseBegin>vm.params.praiseEnd}">
+            </div>
+        </div>
+        <div class="box-cen fjs">
+            <div class="fjs">
+                <b class="input-title">分类</b>
+                <select ng-model="vm.params.classify" ng-options="value as name for (value,name) in vm.classifySelect">
+                    <option value="">请选择</option>
+                </select>
+
+            </div>
+            <div class="fjs">
+                <b class="input-title">状态</b>
+                <select ng-model="vm.params.articleStatus" ng-options="value as name for (value,name) in vm.articleStatusSelect">
+                    <option value="">请选择</option>
+                </select>
+
+            </div>
+            <div class="fjs">
+                <b class="input-title">收藏数</b>
+                <input class="input-box" type="text" ng-model="vm.params.collectionBegin" ng-class="{'input-border':vm.params.collectionBegin>vm.params.collectionEnd}">
+                <div class="blank">~</div>
+                <input class="input-box" type="text" ng-model="vm.params.collectionEnd" ng-class="{'input-border':vm.params.collectionBegin>vm.params.collectionEnd}">
+            </div>
+        </div>
+        <div class="box-bottom">
+            <button class="btn btn-primary" ng-click="vm.reset()">重置</button>
+            <button class="btn btn-success" ng-click="vm.search()">搜索</button>
+        </div>
+    </div>
+    <div class="article-content">
+        <div class="content-title fjs">
+            <p>文章管理</p>
+        </div>
+        <div class="article-table">
+            <table class="table bordered">.
+                <tr>
+                    <th class="text-center son-border">序号</th>
+                    <th class="text-center son-border">标题</th>
+                    <th class="text-center son-border">封面</th>
+                    <th class="text-center son-border">分类</th>
+                    <th class="text-center son-border">作者</th>
+                    <th class="text-center son-border">摘要</th>
+                    <th class="text-center son-border">收藏数</th>
+                    <th class="text-center son-border">点赞数</th>
+                    <th class="text-center son-border">状态</th>
+                    <th class="text-center son-border">操作</th>
+                </tr>
+                <tr class="text-center" ng-repeat="list in vm.article">
+                    <td class="text-center son-border">{{$index +1}}</td>
+                    <td class="text-center son-border" ng-bind-html="list.title"></td>
+                    <td class="text-center son-border">
+                        <img ng-src="{{list.coverUrl}}" alt="">
+                    </td>
+                    <td class="text-center son-border">{{list.classify |classify_a}}</td>
+                    <td class="text-center son-border">{{list.author}}</td>
+                    <td class="text-center son-border">{{list.summary}}</td>
+                    <td class="text-center son-border">{{list.collection}}</td>
+                    <td class="text-center son-border">{{list.praise}}</td>
+                    <td class="text-center son-border">{{list.articleStatus |videoStatus}}</td>
+                    <td class="text-center son-border">
+                        <button class="btn btn-warning" ng-click="vm.examine(list.id)">查看</button>
+                        <button class="btn btn-primary">编辑</button>
+                        <button class="btn btn-danger">下架</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="page-box" novalidate>
+            <uib-pagination total-items="vm.total" ng-change="vm.pagechang()" ng-model="vm.params.page" max-size="vm.maxSize"
+                previous-text="上一页" next-text="下一页" boundary-link-numbers="true"></uib-pagination>
+            <div class="page-go">
+                去第
+                <input class="page-input" type="number" ng-model="vm.params.inputPage" oninput="value=value.replace(/[^\d]/g,'')">
+                页
+            </div>
+            <button class="btn btn-primary" ng-click="vm.submit()" ng-disabled="vm.params.inputPage > vm.Tpage">确定</button>
+        </div>
+    </div>
+   
+</div>

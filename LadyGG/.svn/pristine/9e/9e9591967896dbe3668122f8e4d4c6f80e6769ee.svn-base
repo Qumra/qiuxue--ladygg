@@ -1,0 +1,291 @@
+<template>
+  <div class="video">
+    <!-- 头部导航 -->
+    <div class="nav">
+      <div class="nav-item" @click.stop="show1()" :class="{ active: isActive1 }">年级</div>
+      <i></i>
+      <div class="nav-item" @click.stop="show2()" :class="{ active: isActive2 }">科目</div>
+    </div>
+    <div class="drop" v-show="isActive1">
+        <ul class="dropmeau">
+          <li v-for="item in listGrade" :key="item.id" @click="selectGrade()">{{item.grade}}</li>
+        </ul>
+      </div>
+      <div class="drop" v-show="isActive2">
+        <ul class="dropmeau">
+          <li
+            v-for="(item,index) in listSubject"
+            :key="item.id"
+            @click="selectSubject($event)"
+            :class="[curIndex===index?'active':'']"
+            :data-id="item.id"
+            :data-index="index"
+          >{{item.subject}}</li>
+        </ul>
+      </div>
+    <div class="mask" v-show="isActive1||isActive2">
+    </div>
+
+    <!-- 轮播图 -->
+    <mt-swipe :auto="3000">
+      <!-- v-for='item in info.bannerList' :key="item.videoCoverUrl"-->
+      <!-- <img :src="item.videoCoverUrl" alt=""> -->
+      <mt-swipe-item>1</mt-swipe-item>
+      <mt-swipe-item>2</mt-swipe-item>
+      <mt-swipe-item>3</mt-swipe-item>
+    </mt-swipe>
+    <!-- v-for="item in items" :to="{path: '/' + item.id}"  -->
+    <router-link class="videoList" tag="div" to="/videoDetail">
+      <div class="head">
+        <div class="img">
+          <img src="../assets/images/touxiang.png" alt>
+        </div>
+        <div class="txt">
+          <p class="teacher">牛顿</p>
+          <p class="jianjie">集合是个什么鬼，你还不知道？赶紧看看这个视频补救一下吧，集合是个什么鬼，你还不知道？赶紧看看这个视频补救一下吧111</p>
+        </div>
+      </div>
+      <div class="middle">
+        <div class="mask1">
+          <img src="../assets/images/Layer.png" alt>
+          <p class="title">标题</p>
+          <p class="time">3'14"</p>
+          <button>立即观看</button>
+        </div>
+        <img class="banner" src="../assets/images/successBg.png" alt>
+      </div>
+      <div class="bottom">
+        <div class="left">
+          <img class="collect" src="../assets/images/collect.png" alt @click="collect">
+          <span>15</span>
+          <img class="praise" src="../assets/images/heart.png" alt @click="praise">
+          <span>10</span>
+        </div>
+        <div class="right">
+          2017-03-15
+          <img src="../assets/images/arrow.png" alt>
+        </div>
+      </div>
+    </router-link>
+  </div>
+</template>
+<script>
+import $ from "jquery";
+export default {
+  data() {
+    return {
+      isActive1: false,
+      isActive2: false,
+      curIndex: 0,
+      listGrade: [
+        { id: 0, grade: "全部" },
+        { id: 1, grade: "初一" },
+        { id: 2, grade: "初二" },
+        { id: 3, grade: "初三" },
+        { id: 4, grade: "高一" },
+        { id: 5, grade: "高二" },
+        { id: 6, grade: "高三" }
+      ],
+      listSubject: [
+        { id: 0, subject: "全部" },
+        { id: 1, subject: "语文" },
+        { id: 2, subject: "数学" },
+        { id: 3, subject: "英语" },
+        { id: 4, subject: "物理" },
+        { id: 5, subject: "化学" },
+        { id: 6, subject: "生物" },
+        { id: 7, subject: "历史" },
+        { id: 8, subject: "地理" },
+        { id: 9, subject: "政治" }
+      ]
+    };
+  },
+  mounted() {
+    console.log($(".nav"));
+  },
+  methods: {
+    show1() {
+      this.isActive1 = !this.isActive1;
+      this.isActive2=false;
+    },
+    show2() {
+      this.isActive2 = !this.isActive2;
+      this.isActive1=false;
+    },
+    selectGrade() {},
+    selectSubject(e) {
+      this.curIndex = parseInt(
+        e.currentTarget.dataset.index ? e.currentTarget.dataset.index : 0
+      );
+    },
+    collect() {},
+    praise() {}
+  }
+};
+</script>
+<style lang="scss" scoped>
+@import "../assets/style/public";
+.video {
+  margin-top: $header_h;
+  background-color: #fbf3d0;
+  height: $height - $header_h;
+  position: relative;
+  .nav {
+    background-color: #ffe57e;
+    display: flex;
+    z-index: 100;
+    position: relative;
+    .nav-item {
+      width: 50%;
+      text-align: center;
+      line-height: 0.8rem;
+      font-size: 0.36rem;
+      color: #5f2500;
+      font-weight: 700;
+    }
+    i {
+      border-left: 2px solid #5f2500;
+      margin: 5px;
+    }
+    .active {
+      border-bottom: 3px solid #e3a51c;
+    }
+  }
+  .mask,
+   {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+  }
+  .drop {
+    padding: 0 2%;
+    background-color: #ffe57e;
+    position: absolute;
+    z-index: 100;
+    width: 96%;
+    .dropmeau {
+      background-color: #fcd32d;
+      padding: 0.3rem 0.2rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      li {
+        width: 30%;
+        background-color: #ffe57e;
+        font-size: 0.36rem;
+        color: #5f2500;
+        font-weight: 700;
+        border-radius: 5px;
+        text-align: center;
+        margin-bottom: 0.2rem;
+        padding: 0.1rem 0;
+        &.active {
+          background-color: #dd9f1a;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .mint-swipe {
+    height: 3.5rem;
+    .mint-swipe-item {
+      background-color: #5f2500;
+    }
+  }
+  .videoList {
+    padding: 0.2rem;
+    background-color: #fff;
+    margin-bottom: 0.3rem;
+    color: #b8b8b8;
+    font-size: 0.3rem;
+    .head {
+      display: flex;
+      margin-bottom: 0.2rem;
+      .img {
+        background-color: #b8b8b8;
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        margin-right: 0.1rem;
+        img {
+          width: 0.8rem;
+        }
+      }
+      .txt {
+        .teacher {
+          font-size: 0.38rem;
+          color: #333;
+        }
+        .jianjie {
+          font-size: 0.2rem;
+        }
+      }
+    }
+    .middle {
+      position: relative;
+      height: 3.5rem;
+      margin-bottom: 0.2rem;
+      .mask1 {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        text-align: center;
+        // z-index: 98;
+        img {
+          width: 0.6rem;
+          position: absolute;
+          top: 5%;
+          right: 5%;
+        }
+        .title {
+          font-size: 0.4rem;
+          margin-top: 10%;
+        }
+        .time {
+          margin-top: 5%;
+        }
+        button {
+          color: #fff;
+          background-color: transparent;
+          border: 2px solid #fff;
+          padding: 0.1rem;
+          margin-top: 5%;
+        }
+      }
+      .banner {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .left {
+        .collect {
+          width: 0.3rem;
+        }
+        .praise {
+          width: 0.3rem;
+        }
+        span {
+          margin-right: 0.2rem;
+        }
+      }
+      .right {
+        img {
+          width: 0.15rem;
+          height: 0.24rem;
+        }
+      }
+    }
+  }
+}
+</style>

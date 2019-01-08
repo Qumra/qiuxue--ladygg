@@ -1,0 +1,29 @@
+<div class="pas">
+    <form name="pwForm" class="PW-box" novalidate>
+        <div class="PW-title fas top-rou">
+            修改密码
+        </div>
+        <div class="PW-word">
+            <div class="PW-input fas">
+                <p class="input-titie">输入旧密码</p>
+                <input type="password" name="oldPass" placeholder="请输入旧密码" class="input-box" ng-model="vm.oldPass"
+                    ng-minlength="6" ng-maxlength="20" required>
+            </div>
+            <div class="PW-input fas">
+                <p class="input-titie">设置新密码</p>
+                <input type="password" placeholder="请输入新密码" class="input-box" ng-model="vm.newPass" ng-minlength="6"
+                    ng-maxlength="20" required>
+            </div>
+            <div class="PW-input fas">
+                <p class="input-titie">确认新密码</p>
+                <input type="password" placeholder="请再次输入并确定密码" class="input-box" ng-model="vm.newPasst" ng-minlength="6"
+                    ng-maxlength="20" required>
+            </div>
+            <span class="hints" ng-show="pwForm.$invalid">请检查输入密码长度(6~20位）</span>
+            <p ng-show="!pwForm.$invalid" style="height:22px;"></p>
+            <p class="hints" ng-show="vm.show">新密码不一致</p>
+            <p ng-show="!vm.show" style="height:22px;"></p>
+            <button class="btn btn-success PW-btn" ng-click="vm.save()" ng-disabled="pwForm.$invalid">保存</button>
+        </div>
+    </form>
+</div>

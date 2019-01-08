@@ -1,0 +1,30 @@
+<div class="pas">
+    <form class="RLD-box" novalidate>
+        <div class="RLD-title fas top-rou">
+            {{vm.title}}
+        </div>
+        <div class="RLD-word">
+            <div class="fas RLD-input">
+                <p class="input-titie">角色名</p>
+                <input type="text" class="input-box" ng-model="vm.roleName" required>
+            </div>
+            <div class="RLD-che">
+                <div class="che-father">
+                    <div class="che-son" ng-repeat="father in vm.roleSelect">
+                        <label class="father">
+                            <input type="checkbox" ng-model="father.checked" ng-change="vm.fatherChange()">
+                            {{father.title}}
+                        </label>
+                        <label class="son" ng-repeat="son in father.submodule">
+                            <input type="checkbox" ng-model="son.checked" ng-change="vm.sonChange($parent.$index)">
+                            {{son.title}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="RLD-btns">
+                <button class="btn btn-success RLD-btn" ng-click="vm.decide()">保存</button>
+                <button class="btn btn-danger RLD-btn" ng-click="vm.gobay()">取消</button>
+            </div>
+    </form>
+</div>

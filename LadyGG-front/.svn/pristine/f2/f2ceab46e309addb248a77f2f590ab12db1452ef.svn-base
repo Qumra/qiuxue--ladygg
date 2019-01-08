@@ -1,0 +1,6 @@
+angular.module("myApp").controller('videoDetailCtrl', function ($scope, $state, $http) {
+    //富文本编辑器
+    var E = window.wangEditor
+    var editor = new E('#editor')
+    editor.create()
+})

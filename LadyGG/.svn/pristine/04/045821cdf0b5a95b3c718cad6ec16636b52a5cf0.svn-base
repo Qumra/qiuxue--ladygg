@@ -1,0 +1,58 @@
+import Vue from 'vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import router from './router'
+import VeeValidate,{ Validator } from 'vee-validate'
+import zh_CN from 'vee-validate/dist/locale/zh_CN'
+import App from './App.vue'
+
+Vue.use(VueAxios, axios);
+
+Validator.localize("zh_CN", zh_CN);
+Vue.use(VeeValidate, {
+  locale: 'zh_CN',
+  dictionary:{
+    zh_CN: {
+      messages: {
+        email: () => '请输入正确的邮箱格式',
+        required: ( field )=> "请输入" + field
+      },
+      attributes:{
+        email:'邮箱',
+        phone: '手机'
+      }
+  }
+  }
+});
+Validator.extend('phone', {
+  messages: {
+    zh_CN:() => '请输入正确的手机格式',
+  },
+  validate: value => {
+    return value.length == 11 && /^((13|14|15|17|18)[0-9]{1}\d{8})$/.test(value)
+  }
+});
+
+import { Header, Button, Actionsheet, Popup, Picker, Swipe, SwipeItem } from 'mint-ui';
+
+// Vue.component(Navbar.name, Navbar);
+// Vue.component(TabItem.name, TabItem);
+// Vue.component(TabContainer.name, TabContainer);
+// Vue.component(TabContainerItem.name, TabContainerItem);
+Vue.component(Actionsheet.name, Actionsheet);
+Vue.component(Popup.name, Popup);
+Vue.component(Picker.name, Picker);
+
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem);
+
+Vue.component(Header.name, Header);
+Vue.component(Button.name, Button);
+Vue.config.productionTip = false
+
+
+
+new Vue({
+  router,
+  render: h => h(App),
+}).$mount('#app')

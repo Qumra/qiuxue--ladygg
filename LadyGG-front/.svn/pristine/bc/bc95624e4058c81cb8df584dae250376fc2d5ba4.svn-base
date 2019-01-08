@@ -1,0 +1,7 @@
+.hellow-admin {
+    padding: 50px;
+    font-family: 'FZXiaoZhuanTi-S13T';
+    font-size: 40px;
+    font-weight: 700;
+    color: #ff0000;
+}

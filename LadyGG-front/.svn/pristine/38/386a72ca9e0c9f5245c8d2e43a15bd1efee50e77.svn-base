@@ -1,0 +1,39 @@
+<div style="height:100%">
+    <header>
+        <div class="admin">
+            <div class="po">{{vm.userData.roleName}}</div>
+            <div class="po">
+                <div class="admin-img"></div>
+                {{vm.userData.accountName}}
+            </div>
+            <div class="po" ng-click="vm.esc()">注销</div>
+        </div>
+    </header>
+    <div style="height:100px"></div>
+    <div class="organ">
+        <div class="logo">
+        </div>
+        <div class="uib-title">
+            <i class="glyphicon glyphicon-education pull-left"></i>
+            <span>后台管理系统</span>
+        </div>
+        <uib-accordion close-others="vm.oneAtATime">
+            <div uib-accordion-group panel-class="uib-set" is-open="group.open" ng-click="vm.clickopen($index)"
+                ng-repeat="group in vm.groups" style="margin:0;heigth:100%;border-radius:0;border:none;">
+                <uib-accordion-heading>
+                    <i class=" pull-left glyphicon glyphicon-pencil"></i>
+                    <span>{{group.title}}</span>
+                    <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': group.open, 'glyphicon-chevron-right': !group.open}"></i>
+                </uib-accordion-heading>
+                <div ng-repeat="content in group.content">
+                    <div class="uib-get" ui-sref={{content.url}} ng-class="{true:'backColor'}[content.isBackColor]"
+                        ng-click="vm.bright($parent.$index,$index)">
+                        <span> {{content.title}}</span>
+                        <span class="pull-right glyphicon glyphicon-wrench"></span>
+                    </div>
+                </div>
+            </div>
+        </uib-accordion>
+    </div>
+    <div ui-view></div>
+</div>

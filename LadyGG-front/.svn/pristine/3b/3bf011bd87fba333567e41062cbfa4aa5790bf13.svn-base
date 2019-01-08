@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin-top: 200px;
+            text-align: center;
+        }
+
+        #abc {
+            text-align: left;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function getNewline(val) {
+                var str = new String(val);
+                var bytesCount = 0;
+                var s = "";
+                for (var i = 0, n = str.length; i < n; i++) {
+                    var c = str.charCodeAt(i);
+                    //统计字符串的字符长度
+                    if (c >= 0 && c <= 128) {
+                        bytesCount += 1;
+                    } else {
+                        bytesCount += 2;
+                    }
+                    //换行
+                    s += str.charAt(i);
+                    if (bytesCount >= 30) {
+                        s = s + '\n';
+                        //重置
+                        bytesCount = 0;
+                    }
+                }
+                return s;
+            }
+            var str = document.getElementById('abc').innerText;
+            var newStr = getNewline(str);
+            document.getElementById('abc').innerText = newStr;
+        }
+    </script>
+</head>
+
+<body>
+    <table style="margin-left:35%">
+        <tr>
+            <th>教师</th>
+        </tr>
+        <tr>
+            <td>
+                <p id="abc">阿里山的姑娘美如阿里山的姑娘美如阿里山的姑娘美如阿里山的姑娘美如阿里山的姑娘美如阿里山的姑娘美如阿里山的姑娘美如阿里山的姑娘美如阿里山的姑娘美如阿里山的姑娘美如</p>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

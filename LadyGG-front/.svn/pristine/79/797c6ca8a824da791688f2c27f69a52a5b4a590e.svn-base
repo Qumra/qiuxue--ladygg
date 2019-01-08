@@ -1,0 +1,75 @@
+<form class="pas" name="articleFrom" novalidate>
+    <div class="acticle-box">
+        <div class="acticle-title fas top-rou">
+            {{vm.articleTitle}}
+        </div>
+        <div class="acticle-word">
+            <div class="acticle-input fas">
+                <span class="hint">*</span>
+                <b class="input-titie">标题</b>
+                <input type="text" placeholder="请输入名称" maxlength="25" class="input-box" ng-model="vm.title" ng-disabled="vm.disabled"
+                    required>
+            </div>
+            <div class="acticle-input fas">
+                <span class="hint">*</span>
+                <b class="input-titie">分类</b>
+                <select name="classify" ng-model="vm.classify" ng-options="value as name for (value,name) in vm.classifySelect"
+                    required ng-disabled="vm.disabled">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+            <!-- <div class="acticle-input fas">
+                <b class="input-titie">封面</b>
+                <input type="file" id="uoload" name="file" class="acticle-file" accept="image/*" ng-model="file"
+                    onchange="angular.element(this).scope().inputchange()">
+                <button type="button" class="btn btn-primary acticle-btn">上传效果图</button>
+                <span>（上传文件在5M以内）</span>
+            </div>
+            <div class="acticle-table">
+                <table class="table bordered">
+                    <tr class="father-border">
+                        <th class="text-center son-border">图片名</th>
+                        <th class="text-center son-border">文件大小</th>
+                        <th class="text-center son-border">进度</th>
+                        <th class="text-center son-border">结果</th>
+                        <th class="text-center son-border">操作</th>
+                    </tr>
+                    <tr>
+                        <th class="text-center son-border">图片名</th>
+                        <th class="text-center son-border">图片名</th>
+                        <th class="text-center son-border">图片名</th>
+                        <th class="text-center son-border">图片名</th>
+                        <th class="text-center son-border">
+                            <button class="btn btn-success">上传</button>
+                            <button class="btn btn-danger">删除</button>
+                        </th>
+                    </tr>
+                </table>
+            </div> -->
+            <vcover ng-if="vm.params.Cstatus !== '1'" load="vm.vload()" del="vm.vdel()" name="vm.vname" size="vm.vsize"
+            pro="vm.vpro" upload="vm.vupload" vsrc="vm.vvsrc" file="vm.vfile" loaddisabled="vm.loaddisabled"></vcover>
+            <div class="acticle-input fas">
+                <span class="hint">*</span>
+                <b class="input-titie">作者</b>
+                <input type="text" placeholder="请输入名称" maxlength="14" class="input-box" ng-model="vm.author"
+                    ng-disabled="vm.disabled" required>
+            </div>
+            <div class="acticle-input fas">
+                <span class="hint">*</span>
+                <b class="input-titie">摘要</b>
+                <input type="text" placeholder="请输入名称" maxlength="28" class="input-box" ng-model="vm.summary"
+                    ng-disabled="vm.disabled" required>
+            </div>
+            <div class="acticle-input fas">
+                <span class="hint">*</span>
+                <b class="input-titie">正文</b>
+                <richtext vcontent="vm.content" vdisableds="vm.disabled" required></richtext>
+                </div>
+            </div>
+            <div class="acticle-btn">
+                <button class="btn btn-success"  ng-if="vm.if" ng-click="vm.decide()" ng-disabled="articleFrom.$invalid||vm.vvsrc===vm.u">{{vm.con}}</button>
+                <button class="btn btn-primary" ng-click="vm.gobay()">{{vm.button}}</button>
+            </div>
+        </div>
+    </div>
+</form>

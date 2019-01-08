@@ -1,0 +1,94 @@
+<from name="viedeoFrom" class="pas" novalidate>
+    <modal ng-if="vm.modal" file="vm.file" close="vm.close()" save="vm.save()" load="vm.load()" del="vm.del()"
+        nick-name="vm.nickName" name="vm.name" size="vm.size" pro="vm.pro" upload="vm.upload" vsrc="vm.vsrc" off="vm.off()"
+        loaddisabled="vm.loaddisabled"></modal>
+    <div class="video-box">
+        <div class="video-title fas top-rou">
+            {{vm.videoTitle}}
+        </div>
+        <div class="video-word">
+            <div class="fjs">
+                <div class="video-input fas">
+                    <span class="hint">*</span>
+                    <b class="input-title">所属年级</b>
+                    <select name="grade" ng-model="vm.grade" ng-options="value as name for (value,name) in vm.gradeSelect"
+                        ng-disabled="vm.disabled" required>
+                        <option value="">请选择</option>
+                    </select>
+                </div>
+                <div class="video-input fas">
+                    <span class="hint">*</span>
+                    <b class="input-title">所属科目</b>
+                    <select name="subject" ng-model="vm.subject" ng-options="value as name for (value,name) in vm.subjectSelect"
+                        ng-disabled="vm.disabled" required>
+                        <option value="">请选择</option>
+                    </select>
+                </div>
+                <div class="video-input fas">
+                    <span class="hint">*</span>
+                    <b class="input-title">老师昵称</b>
+                    <select name="nickName" ng-model="vm.Detail.teacherId" ng-change="vm.teacherChange(vm.Detail.teacherId)"
+                        ng-options="x.id as x.nickName for x in vm.teacherSelect" ng-disabled="vm.disabled" required>
+                        <option value="">请选择</option>
+                    </select>
+                </div>
+                <div class="video-input fjs input-btn" ng-if="vm.if">
+                    <button class="btn btn-primary btn-right" ng-click="vm.add()">+添加</button>
+                    <button class="btn btn-danger" ng-click="vm.delTeacher()">删除</button>
+                </div>
+                <div class="input-btn"></div>
+                <div class="user-img">
+                    <b>头像</b>
+                    <div class="add-img">
+                        <img ng-src="{{vm.headPhotoUrl}}" id="images">
+                    </div>
+                </div>
+            </div>
+            <div class="video-row fas">
+                <span class="hint">*</span>
+                <b class="input-title">视频标题</b>
+                <input name="title" type="text" placeholder="请输入名称" class="input-box" ng-model="vm.title" ng-disabled="vm.disabled"
+                    required>
+            </div>
+            <div class="video-row fas" ng-if="vm.if">
+                <span class="hint">*</span>
+                <b class="input-title">分&emsp;&emsp;类</b>
+                <select name="classify" ng-model="vm.classify" ng-options="value as name for (value,name) in vm.classifySelect"
+                    required>
+                    <option value="">请选择</option>
+                </select>
+            </div>
+            <vcover ng-if="vm.params.Cstatus !== '1'" load="vm.vload()" del="vm.vdel()" name="vm.vname" size="vm.vsize"
+                pro="vm.vpro" upload="vm.vupload" vsrc="vm.vvsrc" file="vm.vfile" loaddisabled="vm.loaddisabled"></vcover>
+            <div class="video-row fas">
+                <span class="hint">*</span>
+                <b class="input-title">视频简介</b>
+                <textarea name="addIntro" id="videoInt" cols="100" rows="5" ng-model="vm.summary" ng-disabled="vm.disabled"
+                    required></textarea>
+            </div>
+            <div class="video-row fas">
+                <span class="hint">*</span>
+                <b class="input-title">视频链接</b>
+                <div class="video-url">
+                    <div class="url-block">
+                        <span class="hint">*</span>
+                        <b class="url-title">URL</b>
+                        <input class="input-box" type="url" ng-pattern="/\.mp4$/" placeholder="请输入视频地址" ng-model="vm.videoUrl"
+                            ng-disabled="vm.disabled" loaddisabled="vm.loaddisabled" required>
+                    </div>
+                    <p class="vhiht" ng-if="!vm.videoUrl">PS:请输入正确的视频地址（视频格式为mp4)</p>
+                    <videoself vsrc="vm.videoUrl" ng-if="vm.videoUrl" videotime="vm.videoTime"></videoself>
+                </div>
+            </div>
+            <div class="video-row fas">
+                <span class="hint">*</span>
+                <b class="input-title">正&emsp;&emsp;文</b>
+                <richtext vcontent="vm.content" vdisableds="vm.disabled" required></richtext>
+            </div>
+            <div class="video-btn">
+                <button class="btn btn-success" ng-if="vm.if" ng-click="vm.decide()" ng-disabled="viedeoFrom.$invalid||vm.vvsrc===vm.u">{{vm.con}}</button>
+                <button class="btn btn-primary off-btn" ng-click="vm.gobay()">{{vm.button}}</button>
+            </div>
+        </div>
+    </div>
+</from>

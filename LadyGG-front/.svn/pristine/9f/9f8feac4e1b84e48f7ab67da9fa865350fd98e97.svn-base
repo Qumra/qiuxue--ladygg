@@ -1,0 +1,45 @@
+<div class="pas user-content top-rou">
+    <div class="fas user-title top-rou">
+        <p>用户详情</p>
+    </div>
+    <div class="user-word">
+        <div class="user-input">
+            <div class="ffj">
+                <div class="fjs input-father">
+                    <b class="input-title">昵&emsp;称</b>
+                    <input class="input-box" type="text" disabled="disabled" ng-model="vm.userDetail.nickName">
+                </div>
+                <div class="fjs input-father">
+                    <b class="input-title">I&emsp;D</b>
+                    <input class="input-box" type="text" disabled="disabled" ng-model="vm.userDetail.id">
+                </div>
+                <div class="fjs input-father">
+                    <b class="input-title">手机号</b>
+                    <input class="input-box" type="text" disabled="disabled" ng-model="vm.userDetail.phone">
+                </div>
+                <div class="fjs input-father">
+                    <b class="input-title">邮箱</b>
+                    <input class="input-box" type="email" disabled="disabled" ng-model="vm.userDetail.email">
+                </div>
+                <div class="fjs input-father">
+                    <b class="input-title">年级</b>
+                    <input class="input-box" type="text" disabled="disabled" ng-model="vm.userDetail.grade">
+                </div>
+                <div class="fjs input-father">
+                    <b class="input-title">所在区域</b>
+                    <input class="input-box" type="text" disabled="disabled" ng-model="vm.userDetail.adress">
+                </div>
+                <div class="fjs input-father">
+                    <b class="input-title">逆袭豆</b>
+                    <input class="input-box" type="text" disabled="disabled" ng-model="vm.userDetail.score">
+                </div>
+            </div>
+            <div class="user-img">
+                <b>头像</b>
+                <div class="add-img">
+                    <img src="{{vm.userDetail.src}}" id="images">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

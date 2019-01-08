@@ -1,0 +1,66 @@
+.RLD-box {
+  padding-bottom: 100px;
+  border: solid 1px #e9e9e9;
+  border-radius: 8px;
+}
+
+.RLD-box .RLD-title {
+  padding: 0 30px;
+  height: 40px;
+  background-color: #616663;
+  color: #fff;
+}
+
+.RLD-box .RLD-word {
+  padding: 10px 20px;
+}
+
+.RLD-box .RLD-word .RLD-input {
+  margin: 10px 0;
+  padding: 10px 30px;
+}
+
+.RLD-box .RLD-word .RLD-input .input-titie {
+  margin-right: 2%;
+  font-size: 14px;
+}
+
+.RLD-box .RLD-word .RLD-input .input-box {
+  padding-left: 20px;
+  width: 40%;
+  height: 30px;
+  text-align: left;
+}
+
+.RLD-box .RLD-word .RLD-che {
+  padding: 20px 200px 20px 105px;
+}
+
+.RLD-box .RLD-word .RLD-che .che-father {
+  display: flex;
+  justify-content: space-between;
+}
+
+.RLD-box .RLD-word .RLD-che .che-father .che-son {
+  display: flex;
+  flex-direction: column;
+}
+
+.RLD-box .RLD-word .RLD-che .che-father .che-son .father {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.RLD-box .RLD-word .RLD-che .che-father .che-son .son {
+  margin-left: 20px;
+}
+
+.RLD-box .RLD-word .RLD-btns {
+  padding-left: 50px;
+}
+
+.RLD-box .RLD-word .RLD-btns .RLD-btn {
+  margin: 50px 0 0 60px;
+  width: 120px;
+  height: 36px;
+}

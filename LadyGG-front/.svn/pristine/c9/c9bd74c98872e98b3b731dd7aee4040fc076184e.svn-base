@@ -1,0 +1,51 @@
+.MODD-box {
+    padding-bottom: 100px;
+    border: solid 1px #e9e9e9;
+    border-radius: 8px;
+
+    .MODD-title {
+        padding: 0 30px;
+        height: 40px;
+        background-color: #616663;
+        color: #fff;
+    }
+
+    .MODD-word {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+
+        .MODD-input {
+            margin: 8px 0;
+
+            .input-titie {
+                margin-right: 5px;
+                width: 70px;
+                font-size: 14px;
+                text-align: center;
+            }
+
+            .input-box {
+                width: 500px;
+                height: 30px;
+            }
+
+            .acticle-file {
+                opacity: 0.1;
+            }
+
+            .MODD-btn {
+                margin: 10px 75px;
+                width: 130px;
+            }
+        }
+    }
+}
+
+.hint {
+    margin-top: 4px;
+    margin-right: 10px;
+    font-size: 16px;
+    color: #ff0000;
+}

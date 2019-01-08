@@ -1,0 +1,161 @@
+        /*模态框*/
+        .vmodal {
+            /* 默认隐藏 */
+            position: fixed;
+            /* 根据浏览器定位 */
+            z-index: 999;
+            /* 放在顶部 */
+            left: 260px;
+            top: 0;
+            width: calc(100% - 260px);
+            /* 全宽 */
+            height: 100%;
+            /* 全高 */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* 背景色 */
+
+        }
+
+        /*模态框内容*/
+        .vmodal-content {
+            display: flex;
+            /*采用flexbox布局*/
+            flex-direction: column;
+            /*垂直排列*/
+            position: relative;
+            background-color: #fefefe;
+            margin: 13% auto;
+            /*距顶部15% 水平居中*/
+            border: 1px solid #888;
+            width: 770px;
+            height: 430px;
+            animation: topDown 0.4s;
+            /*自定义动画，从模态框内容上到下出现*/
+        }
+
+        @keyframes topDown {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+
+        /*模态框头部*/
+        .vmodal-header {
+            display: flex;
+            /*采用flexbox布局*/
+            flex-direction: row;
+            /*水平布局*/
+            align-items: center;
+            /*内容垂直居中*/
+            justify-content: space-between;
+            padding: 0 20px 0 100px;
+            border-bottom: solid 1px #000;
+        }
+
+        .vmodal-title {
+            display: flex;
+            align-items: center;
+            height: 60px;
+        }
+
+        .vmodal-title b {
+            margin-right: 20px;
+            font-size: 14px;
+        }
+
+        .vmodal-title input {
+            height: 30px;
+        }
+
+        /*关闭X 样式*/
+        .vclose {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .vclose:hover {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .vmodal-body {
+            display: flex;
+            /*采用flexbox布局*/
+            flex-direction: column;
+            /*垂直排列*/
+            padding: 20px 20px 40px 100px;
+            border-bottom: solid 1px #000;
+        }
+
+        .preview {
+            margin-bottom: 20px;
+            display: flex;
+            vertical-align: top;
+        }
+
+        .vmodal-img {
+            margin-left: 20px;
+            height: 116px;
+            border: solid 8px #ccc;
+        }
+
+        #images {
+            max-height: 100px;
+        }
+
+        input[type="file"] {
+            margin-left: 87px;
+            width: 82px;
+            height: 34px;
+            opacity: 0;
+        }
+
+        .file-btn {
+            margin-top: -34px;
+            margin-left: 87px;
+            margin-bottom: 20px;
+            width: 80px;
+        }
+
+        .table-btn {
+            padding: 1px 5px;
+            height: 24px;
+        }
+
+        .vmodal-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 61px;
+        }
+
+        .btn-left {
+            margin-right: 60px;
+        }
+
+        .hint {
+            margin-right: 5px;
+            padding-top: 7px;
+            line-height: 30px;
+            font-size: 18px;
+            font-weight: bolder;
+            color: #ff0000;
+        }
+
+        .hints {
+            margin-top: -1.5px;
+            margin-right: 5px;
+            line-height: 30px;
+            font-size: 18px;
+            font-weight: bolder;
+            color: #ff0000;
+        }

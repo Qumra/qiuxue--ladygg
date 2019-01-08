@@ -1,0 +1,67 @@
+.acticle-box {
+    padding-bottom: 100px;
+    border: solid 1px #e9e9e9;
+    border-radius: 8px;
+
+    .acticle-title {
+        padding: 0 30px;
+        height: 40px;
+        background-color: #616663;
+        color: #fff;
+    }
+
+    .acticle-word {
+        display: flex;
+        flex-direction: column;
+        padding: 50px 100px;
+
+        .acticle-input {
+            margin: 10px 0;
+
+            .input-titie {
+                margin-left: 15px;
+                margin-right: 5px;
+                width: 70px;
+                font-size: 15px;
+                text-align: center;
+            }
+
+            .input-box {
+                width: 1200px;
+                height: 30px;
+            }
+
+            .acticle-file {
+                opacity: 0.0;
+            }
+
+            .acticle-btn {
+                margin-left: -265px;
+            }
+        }
+
+        .acticle-table {
+            margin-top: 10px;
+            padding-left: 90px;
+
+            .bordered {
+                width: 1200px;
+                border: 1px solid #ddd;
+
+                .father-border {
+                    background: #ccc;
+
+                    .son-border {
+                        border: 1px solid #ddd;
+                    }
+                }
+            }
+        }
+
+        .acticle-btn {
+            margin-top: 20px;
+            margin-left: 600px;
+            text-align: center;
+        }
+    }
+}

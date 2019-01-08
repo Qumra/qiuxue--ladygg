@@ -1,0 +1,26 @@
+p {
+    margin: 0;
+}
+
+.top-rou {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.pas {
+    position: absolute;
+    top: 110px;
+    left: 280px;
+    right: 30px;
+}
+
+.fjs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fas {
+    display: flex;
+    align-items: center;
+}

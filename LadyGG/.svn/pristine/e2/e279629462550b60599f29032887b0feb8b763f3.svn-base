@@ -1,0 +1,32 @@
+<template>
+  <div class="phone">
+    <div class="notice">
+      <img src="../assets/images/notice.png" alt>
+      绑定手机号/邮箱可获得20颗逆袭豆
+    </div>
+    <div class="phone">
+        手机：<input type="number">
+    </div>
+     <div class="email">
+        验证<input type="email"><button class="captcha">获取验证码</button>
+    </div>
+  </div>
+</template>
+<script>
+</script>
+<style lang="scss" scoped>
+.phone {
+    text-align: center;
+    font-weight: 700;
+    .notice {
+        font-size: .3rem;
+        color: #865834;
+        margin: .3rem 0;
+        img {
+            width: 0.46rem;
+            height: 0.32rem;
+            margin-right: .2rem;
+        }
+    }
+}
+</style>

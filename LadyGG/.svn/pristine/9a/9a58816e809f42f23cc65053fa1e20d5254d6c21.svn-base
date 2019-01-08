@@ -1,0 +1,53 @@
+<template>
+    <div class="star">
+          <div class="nav">
+      <div class="nav-item" @click="isActive=!isActive" :class="{ active: isActive }">
+        <router-link class="tab" to="/star/myLiterature">文学部</router-link>
+      </div>
+      <i></i>
+      <div class="nav-item" @click="isActive=!isActive" :class="{ active: !isActive }">
+        <router-link class="tab" to="/star/myVideo">影像部</router-link>
+      </div>
+    </div>
+    <router-view></router-view>
+    </div>
+</template>
+<script>
+    export default {
+        data(){
+            return {
+                isActive:true
+            }
+        },
+        methods:{}
+    }
+</script>
+<style lang="scss" scoped>
+@import "../assets/style/public";
+.star {
+  margin-top: $header_h;
+  background-color: #fbf3d0;
+  height: $height - $header_h;
+     .nav {
+    background-color: #ffe57e;
+    display: flex;
+    .nav-item {
+        width: 50%;
+        text-align: center;
+        line-height: .8rem;
+    }
+     i {
+        border-left: 2px solid #5f2500;
+        margin: 5px;
+      }
+  }
+  .tab {
+    font-size: 0.36rem;
+    color: #5f2500;
+    font-weight: 700;
+  }
+  .active {
+      border-bottom: 2px solid #e3a51c;
+  }
+}
+</style>

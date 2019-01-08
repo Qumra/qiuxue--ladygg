@@ -1,0 +1,14 @@
+<template>
+    <div class="myVideo">
+
+    </div>
+</template>
+<script>
+    
+</script>
+<style lang="scss" scoped>
+@import "../assets/style/public";
+.myVideo {
+    
+}
+</style>

@@ -1,0 +1,93 @@
+<template>
+  <div class="detaile">
+    <div class="head">
+      <div class="img">
+        <img src="../assets/images/touxiang.png" alt="">
+      </div>
+      <div class="title">前世情人的今世窘境</div>
+      
+    </div>
+    <span class="time">2017-03-15</span>
+      <span class="author">牛顿</span>
+    <!-- 视频播放 -->
+    <video src="D:\20181122_173036.mp4" controls="controls">your browser does not support the video tag</video>
+    <div class="content" v-html="content"></div>
+    <div class="bottom">
+      <div class="shoucang">
+        <img class="collect" src="../assets/images/collect.png" alt>
+        <p>15</p>
+      </div>
+      <div class="dianzan">
+        <img class="praise" src="../assets/images/heart.png" alt>
+        <p>10</p>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      content:
+        '<p class="jianjie">集合是个什么鬼，你还不知道？赶紧看看这个视频补救一下吧，集合是个什么鬼，你还不知道？赶紧看看这个视频补救一下吧111</p><p class="jianjie">集合是个什么鬼，你还不知道？赶紧看看这个视频补救一下吧，集合是个什么鬼，你还不知道？赶紧看看这个视频补救一下吧111</p><p class="jianjie">集合是个什么鬼，你还不知道？赶紧看看这个视频补救一下吧，集合是个什么鬼，你还不知道？赶紧看看这个视频补救一下吧111</p>'
+    };
+  },
+};
+</script>
+<style lang="scss" scoped>
+@import "../assets/style/public";
+.detaile {
+  margin-top: $header_h;
+  height: $height - $header_h;
+  padding: 0.3rem 0.2rem;
+  color: #b8b8b8;
+  font-size: 0.34rem;
+ .head {
+   display: flex;
+   .img {
+     img {
+       width: 0.7rem;
+        height: .7rem;
+        margin-right: .3rem;
+     }
+   }
+    .title {
+    font-size: 0.38rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    color: #333;
+  }
+ 
+ }
+  .time {
+    margin-right: 0.5rem;
+    margin-left: 1rem;
+  }
+  .content {
+    margin-top: 0.2rem;
+    text-indent: 0.68rem;
+    margin-bottom: 1rem;
+  }
+  video {
+    width: 100%;
+    margin: .2rem 0;
+  }
+  .bottom {
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.4rem;
+    align-items: center;
+    text-align: center;
+    .shoucang {
+      img {
+        width: 1rem;
+      }
+    }
+    .dianzan {
+      img {
+        width: 1rem;
+      }
+    }
+  }
+}
+</style>

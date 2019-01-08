@@ -1,0 +1,28 @@
+import Vue from 'vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import router from './router'
+import App from './App.vue'
+
+Vue.use(VueAxios, axios);
+import { Header,Button,Actionsheet,Popup,Picker,Swipe, SwipeItem } from 'mint-ui';
+
+// Vue.component(Navbar.name, Navbar);
+// Vue.component(TabItem.name, TabItem);
+// Vue.component(TabContainer.name, TabContainer);
+// Vue.component(TabContainerItem.name, TabContainerItem);
+Vue.component(Actionsheet.name, Actionsheet);
+Vue.component(Popup.name, Popup);
+Vue.component(Picker.name, Picker);
+
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem);
+
+Vue.component(Header.name, Header);
+Vue.component(Button.name, Button);
+Vue.config.productionTip = false
+
+new Vue({
+  router,
+  render: h => h(App),
+}).$mount('#app')

@@ -1,0 +1,48 @@
+angular.module("myApp").controller('backstageCtrl', function ($scope, $state, $http) {
+    $scope.oneAtATime = true;
+    $scope.groups = [{
+            title: '信息管理',
+            content: [{
+                    a: "公司列表",
+                    url: 'backstagpe.details'
+                },
+                {
+                    a: "职位列表",
+                    url: 'backstagpe.details'
+                },
+
+            ],
+            open: false,
+        },
+        {
+            title: '内容管理',
+            content: [{
+                a: 'Article列表',
+                url: 'backstagpe.list'
+            }, ],
+            open: false,
+        },
+        {
+            title: '后台管理',
+            content: [{
+                    a: '账号管理',
+                    url: 'backstagpe.details'
+                },
+                {
+                    a: '角色管理',
+                    url: 'backstagpe.details'
+                },
+                {
+                    a: '修改管理',
+                    url: 'backstagpe.details'
+                },
+                {
+                    a: '模块管理',
+                    url: 'backstagpe.details'
+                },
+
+            ],
+            open: false,
+        }
+    ]
+})

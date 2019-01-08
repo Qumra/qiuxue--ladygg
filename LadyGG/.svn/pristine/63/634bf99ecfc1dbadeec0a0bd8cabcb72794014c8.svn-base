@@ -1,0 +1,120 @@
+<template>
+  <div class="star">
+    <!-- <div class="nav">
+      <div class="nav-item" @click="isActive=!isActive" :class="{ active: isActive }">
+        <router-link class="tab" to="/star/myLiterature">文学部</router-link>
+      </div>
+      <i></i>
+      <div class="nav-item" @click="isActive=!isActive" :class="{ active: !isActive }">
+        <router-link class="tab" to="/star/myVideo">影像部</router-link>
+      </div>
+    </div> -->
+    <!-- <router-view></router-view> -->
+     
+     <mt-navbar v-model="selected">
+      <mt-tab-item class="tab" id="1"><span>文学部</span> </mt-tab-item>
+      <i></i>
+      <mt-tab-item class="tab" id="2"><span>影视部</span></mt-tab-item>
+    </mt-navbar>
+    
+    <mt-tab-container v-model="selected">
+      <mt-tab-container-item id="1">
+         <myLiterature ref="myLiterature"></myLiterature>
+        
+      </mt-tab-container-item>
+      <mt-tab-container-item id="2">
+          <myVideo ref="myVideo"></myVideo>
+      </mt-tab-container-item>
+    </mt-tab-container>
+ </div>
+</template>
+<script>
+import myVideo from "../components/myVideo"
+import myLiterature from "../components/myLiterature"
+export default {
+    
+  data() {
+    return {
+      isActive: true,
+       selected: "1",
+        params :{},
+        pageNow:1,
+        pageSize:10
+    };
+  },
+  mounted(){
+
+  },
+  methods: {
+getLiterList(id){
+
+},
+getVideoList(id){
+     this.params = { pageNow: this.pageNow, pageSize: this.pageSize, };
+      this.$refs.myVideo.getInfo(`/api/u/user/${id}/video`, this.params);
+},
+  },
+  components:{
+      myVideo,
+      myLiterature
+  }
+
+};
+</script>
+<style lang="scss" scoped>
+@import "../assets/style/public";
+.star {
+  margin-top: $header_h;
+  background-color: #fbf3d0;
+  height: $height - $header_h;
+    // 覆盖mintui的navbar的样式
+    .mint-navbar {
+      background-color: #ffe57e;
+          margin-bottom: 3px;
+      i {
+        border-left: 2px solid #5f2500;
+        margin: 5px;
+      }
+      .mint-tab-item {
+        &.is-selected {
+          border-bottom: 3px solid #e3a51c;
+        }
+        .mint-tab-item-label {
+          font-size: 0.36rem;
+        }
+      }
+    }
+    .tab {
+      font-size: 0.36rem;
+      color: #5f2500;
+      font-weight: 700;
+      span {
+          font-size: 0.36rem;
+      }
+    }
+  .active {
+    border-bottom: 2px solid #e3a51c;
+  }                                                                                                                                                     
+   .fs-34 {
+    font-size: .34rem
+  }
+}
+//  .nav {
+//     background-color: #ffe57e;
+//     display: flex;
+//     .nav-item {
+//       width: 50%;
+//       text-align: center;
+//       line-height: 0.8rem;
+//     }
+//     i {
+//       border-left: 2px solid #5f2500;
+//       margin: 5px;
+//     }
+//   }
+//  .tab {
+//     font-size: 0.36rem;
+//     color: #5f2500;
+//     font-weight: 700;
+//   }
+</style>

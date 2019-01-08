@@ -1,0 +1,1 @@
+angular.module("myApp").controller('ACDetailCtrl', function ($scope, $state, $http) {})

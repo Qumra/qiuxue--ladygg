@@ -1,0 +1,47 @@
+<form class="pas" name="articleFrom" novalidate>
+    <div class="acticle-box">
+        <div class="acticle-title fas top-rou">
+            {{vm.articleTitle}}
+        </div>
+        <div class="acticle-word">
+            <div class="acticle-input fas">
+                <span class="hint">*</span>
+                <b class="input-titie">标&emsp;&emsp;题</b>
+                <input type="text" placeholder="请输入名称" maxlength="25" class="input-box" ng-model="vm.title" ng-disabled="vm.disabled"
+                    required>
+            </div>
+            <div class="acticle-input fas">
+                <span class="hint">*</span>
+                <b class="input-titie">分&emsp;&emsp;类</b>
+                <select name="classify" ng-model="vm.classify" ng-options="value as name for (value,name) in vm.classifySelect"
+                    required ng-disabled="vm.disabled">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+            <vcover ng-if="vm.params.Cstatus !== '1'" load="vm.vload()" del="vm.vdel()" name="vm.vname" size="vm.vsize"
+                pro="vm.vpro" upload="vm.vupload" vsrc="vm.vvsrc" file="vm.vfile" loaddisabled="vm.loaddisabled"></vcover>
+            <div class="acticle-input fas">
+                <span class="hint">*</span>
+                <b class="input-titie">作&emsp;&emsp;者</b>
+                <input type="text" placeholder="请输入名称" maxlength="14" class="input-box" ng-model="vm.author"
+                    ng-disabled="vm.disabled" required>
+            </div>
+            <div class="acticle-input fas">
+                <span class="hint">*</span>
+                <b class="input-titie">摘&emsp;&emsp;要</b>
+                <input type="text" placeholder="请输入名称" maxlength="28" class="input-box" ng-model="vm.summary"
+                    ng-disabled="vm.disabled" required>
+            </div>
+            <div class="acticle-input fas">
+                <span class="hint">*</span>
+                <b class="input-titie">正&emsp;&emsp;文</b>
+                <richtext vcontent="vm.content" vdisableds="vm.disabled" required></richtext>
+            </div>
+        </div>
+        <div class="acticle-btn ac">
+            <button class="btn btn-success" ng-if="vm.if" ng-click="vm.decide()" ng-disabled="articleFrom.$invalid||vm.vvsrc===vm.u">{{vm.con}}</button>
+            <button class="btn btn-primary" ng-click="vm.gobay()">{{vm.button}}</button>
+        </div>
+    </div>
+    </div>
+</form>

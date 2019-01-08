@@ -1,0 +1,1 @@
+angular.module("myApp").controller('RLDetailCtrl', function ($scope, $state, $http) {})

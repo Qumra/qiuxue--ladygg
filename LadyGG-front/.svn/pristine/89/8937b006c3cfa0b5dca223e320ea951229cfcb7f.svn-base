@@ -1,0 +1,42 @@
+angular.module("myApp")
+    .controller('loginCtrl', function ($scope, $http, $state,
+        $timeout, $location) {
+        // var pathUrl = $location.path()
+        // if (pathUrl == "/login") {
+        //     history.pushState(null, null, document.URL);
+        //     window.addEventListener('popstate', function () {
+        //         history.pushState(null, null, document.URL);
+        //     });
+        // }
+        $scope.login = function () {
+            $state.go('backstage.welcome')
+            //     $http({
+            //             methos: "post",
+            //             url: "/a/a/login",
+            //             data: {
+            //                 accountName: $scope.username,
+            //                 password: $scope.password
+            //             },
+            //             headers: {
+            //                 'Content-Type': 'application/x-www-form-urlencoded'
+            //             }
+            //         })
+            //         .then(res => {
+            //             console.log(res)
+            //             if (res.data.code === 0) {
+            //                 $scope.show = false;
+            //                 $state.go('backstage.welcome')
+            //             }
+            //             if (res.data.code !== 0) {
+            //                 $scope.message = res.data.message;
+            //                 $scope.show = true;
+            //                 $scope.timeout = $timeout(function () {
+            //                     $scope.show = false;
+            //                 }, 1000);
+            //             }
+            //         })
+            //         .catch(res => {
+            //             console.log('登录系统异常，请检查相关设置');
+            //         })
+        }
+    });

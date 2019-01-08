@@ -1,0 +1,43 @@
+<div class="pas">
+    <div class="MODD-box">
+        <div class="MODD-title fas top-rou">
+            {{vm.title}}
+        </div>
+        <form class="MODD-word" name="modForm" novalidate>
+            <div class="MODD-input fas">
+                <span class="hint">&#10033</span>
+                <b class="input-titie">名称</b>
+                <input name="moduleName" type="text" placeholder="请输入名称" class="input-box" ng-model="vm.moduleName"
+                    required>
+            </div>
+            <div class="MODD-input fas">
+                <span class="hint">&#10033</span>
+                <b class="input-titie">排序id</b>
+                <input name="sortId" type="text" placeholder="数字越小，排序靠前" ng-model="vm.sortId" oninput="value=value.replace(/[^\d]/g,'')"
+                    class="input-box" required>
+            </div>
+            <div class="MODD-input fas">
+                <span class="hint">&#10033</span>
+                <b class="input-titie">URL地址</b>
+                <input name="moduleUrl" type="text" placeholder="请输入模块对应的url地址 /a/user/manage格式" ng-model="vm.moduleUrl"
+                    class="input-box" required>
+            </div>
+            <div class="MODD-input fas">
+                <span class="hint">&#10033</span>
+                <b class="input-titie">父模块ID</b>
+                <input name="parentId" type="text" placeholder="请输入父模块ID" ng-model="vm.parentId" oninput="value=value.replace(/[^\d]/g,'')"
+                    class="input-box" required>
+            </div>
+            <div class="MODD-input fas">
+                <span class="hint">&#10033</span>
+                <b class="input-titie">Url</b>
+                <input name="url" type="text" placeholder="请输入路由跳转Url   /MOD格式" ng-model="vm.url" class="input-box"
+                    ng-disabled="vm.parentId == 0||vm.parentId ==null">
+            </div>
+            <div class="MODD-input fas">
+                <button class="btn btn-primary MODD-btn" ng-click="vm.decide()" ng-disabled="modForm.$invalid">保存</button>
+                <button class="btn btn-primary MODD-btn" ng-click="vm.gobay()">取消</button>
+            </div>
+        </form>
+    </div>
+</div>

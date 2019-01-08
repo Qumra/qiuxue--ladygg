@@ -1,0 +1,33 @@
+<div class="pas">
+    <div class="ACD-box">
+        <div class="ACD-title fas top-rou">
+            新增账号
+        </div>
+        <div class="ACD-word">
+            <div class="ACD-input fas">
+                <p class="input-titie">标题名称</p>
+                <input type="text" class="input-box">
+            </div>
+            <div class="ACD-input fas">
+                <p class="input-titie">手机号码</p>
+                <input type="text" class="input-box">
+            </div>
+            <div class="ACD-input fas">
+                <p class="input-titie">密码</p>
+                <input type="password" class="input-box">
+            </div>
+            <div class="ACD-input fas">
+                <p class="input-titie">确定密码</p>
+                <input type="password" class="input-box">
+            </div>
+            <div class="ACD-input fas">
+                <p class="input-titie">角色</p>
+                <select name="" id=""></select>
+            </div>
+            <div class="ACD-btn fas">
+                <button class="btn btn-success">确定</button>
+                <button style="margin-left:50px;" class="btn btn-danger">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

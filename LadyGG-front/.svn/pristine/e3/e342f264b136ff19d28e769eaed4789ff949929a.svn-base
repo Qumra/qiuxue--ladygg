@@ -1,0 +1,46 @@
+.admin-content {
+    margin-top: 20px;
+    border: solid 1px #cccccc;
+
+    .content-title {
+        padding: 0 30px;
+        height: 60px;
+        border-bottom: solid 1px #cccccc;
+        font-size: 20px;
+
+        p {
+            font-weight: bold;
+        }
+
+    }
+
+    .admin-table {
+        padding: 30px;
+
+        .bordered {
+            border: 1px solid #ddd;
+
+            .son-border {
+                border: 1px solid #ddd;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+.page-box {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 50px;
+    height: 60px;
+
+    .page-go {
+        margin: 0 20px 0 10px;
+
+        .page-input {
+            width: 40px;
+            text-align: center;
+        }
+    }
+}

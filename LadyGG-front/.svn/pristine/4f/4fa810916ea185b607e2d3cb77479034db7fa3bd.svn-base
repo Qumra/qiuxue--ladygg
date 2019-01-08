@@ -1,0 +1,81 @@
+angular.module("myApp").controller('backstageCtrl', function ($scope, $state, $http) {
+    // //退出
+    // $scope.ESC = function () {
+    //     $http({
+    //         url: "/a/a/login",
+    //         method: "get",
+    //     }).then(res => {
+    //         if (res.data.code === 0) {
+    //             $state.go("login")
+    //         }
+    //     })
+    // }
+    $scope.admin = 'admin';
+    $scope.oneAtATime = true;
+    $scope.groups = [{
+            title: '用户管理',
+            content: [{
+                a: "用户列表",
+                url: 'backstage.userList'
+            }, ],
+            open: false,
+        },
+        {
+            title: '内容管理',
+            content: [{
+                a: '文章列表',
+                url: 'backstage.articleList'
+            }, {
+                a: '视频列表',
+                url: 'backstage.videoList'
+            }],
+            open: false,
+        },
+        {
+            title: '后台管理',
+            content: [{
+                    a: '账号管理',
+                    url: 'backstage.AC'
+                },
+                {
+                    a: '角色管理',
+                    url: 'backstage.RL'
+                },
+                {
+                    a: '修改密码',
+                    url: 'backstage.PW'
+                },
+                {
+                    a: '模块管理',
+                    url: 'backstage.MOD'
+                },
+
+            ],
+            open: false,
+        }
+    ]
+    //风琴菜单状态保存
+    $scope.clickopen = function (index) {
+        sessionStorage.setItem("open", index)
+    }
+    if (window.sessionStorage.getItem("open")) {
+        open = parseInt(window.sessionStorage.getItem("open"))
+        $scope.groups[open].open = true;
+    }
+    //侧边栏高亮
+    $scope.bright = function (a, b) {
+        for (let i = 0; i < $scope.groups.length; i++) {
+            for (let r = 0; r < $scope.groups[i].content.length; r++) {
+                $scope.groups[i].content[r].isBackColor = false;
+            }
+        }
+        $scope.groups[a].content[b].isBackColor = true;
+        sessionStorage.setItem("i", a)
+        sessionStorage.setItem("r", b)
+    }
+    i = sessionStorage.getItem("i")
+    r = sessionStorage.getItem("r")
+    if (i && r) {
+        $scope.groups[i].content[r].isBackColor = true;
+    }
+})

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+  
+</head>
+<body>
+    <div id="app" v-cloak>
+        <input type="text">
+       <mt-button :disabled=isDisabled @click=send>{{msg}}</mt-button>
+    </div>
+</body>
+</html>
+<script src="https://cdn.staticfile.org/vue/2.5.17-beta.0/vue.js"></script>
+<script src="https://unpkg.com/mint-ui/lib/index.js"></script>
+<script>
+var vm = new Vue({
+    el :'#app',
+    data:{
+        msg:'点击发送短信',
+        isDisabled:false,
+        count:6,
+        timer:null,
+    },
+    methods:{
+        send(){
+            this.isDisabled=true;
+            // if (this.timer !== null) return;  //判断之前是否有定时器
+            this.timer=setInterval(()=>{
+                this.count--;
+                if( this.count>0){
+                    this.msg="还剩余"+this.count+"秒"
+                }else{
+                    this.msg="重新发送";
+                    this.isDisabled=false;
+                    clearInterval(this.timer);
+                    // this.timer=null;
+                    this.count=6;
+                }
+            },1000)
+        }
+    }
+})
+</script>

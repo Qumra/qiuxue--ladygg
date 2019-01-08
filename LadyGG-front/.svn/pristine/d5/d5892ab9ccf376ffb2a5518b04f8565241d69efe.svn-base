@@ -1,0 +1,19 @@
+angular.module("myApp").controller('userDetailCtrl',
+    function ($state, userRes) {
+        /***********
+         **常用数据**
+         ***********/
+        var vm = this;
+        vm.params = $state.params;
+        let id = vm.params.id;
+        /***************
+         **获取用户详情**
+         ***************/
+        function getDetail() {
+            userRes.userDetail(id).then(res => {
+                console.log(res);
+                vm.userDetail = res.data.data;
+            })
+        }
+        getDetail()
+    })

@@ -1,0 +1,47 @@
+<div class="pas">
+    <div class="admin-box fjs">
+        <div class="fjs">
+            <p class="input-titie">角色</p>
+            <select name="" id=""></select>
+        </div>
+        <div class="fjs">
+            <p class="input-titie">用户名</p>
+            <input type="text" class="input-box">
+        </div>
+        <div>
+            <button class="btn btn-success">重置</button>
+            <button class="btn btn-primary">查询</button>
+        </div>
+    </div>
+    <div class="admin-content">
+        <div class="content-title fjs">
+            <p>用户列表 </p>
+            <button class="btn btn-info">+新增</button>
+        </div>
+        <div class="admin-table">
+            <table class="table bordered">
+                <tr>
+                    <th class="text-center son-border">id</th>
+                    <th class="text-center son-border">角色名</th>
+                    <th class="text-center son-border">创建人</th>
+                    <th class="text-center son-border">创建时间</th>
+                    <th class="text-center son-border">更新人</th>
+                    <th class="text-center son-border">更新时间</th>
+                    <th class="text-center son-border">操作</th>
+                </tr>
+                <tr>
+                    <td class="text-center son-border">1</td>
+                    <td class="text-center son-border">2</td>
+                    <td class="text-center son-border">3</td>
+                    <td class="text-center son-border">4</td>
+                    <td class="text-center son-border">5</td>
+                    <td class="text-center son-border">6</td>
+                    <td class="text-center son-border">
+                        <button class="btn btn-warning">编辑</button>
+                        <button class="btn btn-danger">删除</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

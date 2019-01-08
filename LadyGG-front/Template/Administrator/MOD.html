@@ -1,0 +1,47 @@
+<div class="pas MOD-content">
+    <div class="MOD-title fjs">
+        <b>模块管理</b>
+        <button class="btn btn-info" ng-click="vm.add()">+新增</button>
+    </div>
+    <div class="MOD-table">
+        <table class="table bordered">
+            <tr>
+                <th class="text-center son-border">自增长ID</th>
+                <th class="text-center son-border">名称</th>
+                <th class="text-center son-border">模块对应url地址</th>
+                <th class="text-center son-border">父级模块ID</th>
+                <th class="text-center son-border">跳转url</th>
+                <th class="text-center son-border">数据更新时间</th>
+                <th class="text-center son-border">更新人ID</th>
+                <th class="text-center son-border">数据创建时间</th>
+                <th class="text-center son-border">创建人ID</th>
+                <th class="text-center son-border">操作</th>
+            </tr>
+            <tr ng-repeat="list in vm.module">
+                <td class="text-center son-border">{{list.id}}</td>
+                <td class="text-center son-border">{{list.moduleName}}</td>
+                <td class="text-center son-border">{{list.moduleUrl}}</td>
+                <td class="text-center son-border">{{list.parentId}}</td>
+                <td class="text-center son-border">{{list.url}}</td>
+                <td class="text-center son-border">{{list.updateAt |date:'yyyy/MM/dd hh:ss'}}</td>
+                <td class="text-center son-border">{{list.updateBy}}</td>
+                <td class="text-center son-border">{{list.createAt}}</td>
+                <td class="text-center son-border">{{list.createBy |date:'yyyy/MM/dd hh:ss'}}</td>
+                <td class="text-center son-border">
+                    <button class="btn btn-warning" ng-click="vm.edit(list.id)">编辑</button>
+                    <button class="btn btn-danger" ng-click="vm.del(list.id)">删除</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="page-box" novalidate>
+        <uib-pagination total-items="vm.total" ng-change="vm.pagechang()" ng-model="vm.params.page" max-size="vm.maxSize"
+            previous-text="上一页" next-text="下一页" boundary-link-numbers="true"></uib-pagination>
+        <div class="page-go">
+            去第
+            <input class="page-input" type="number" ng-model="vm.params.inputPage" oninput="value=value.replace(/[^\d]/g,'')">
+            页
+        </div>
+        <button class="btn btn-primary" ng-click="vm.submit()" ng-disabled="vm.params.inputPage > vm.Tpage">确定</button>
+    </div>
+</div>

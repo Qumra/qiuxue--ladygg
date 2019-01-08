@@ -1,0 +1,68 @@
+<div class="pas">
+    <div class="video-box">
+        <div class="video-title fas top-rou">
+            视频编辑
+        </div>
+        <div class="video-word">
+            <div class="fjs">
+                <div class="video-input fas">
+                    <b class="input-title">所属年级</b>
+                    <select name="" id=""></select>
+                </div>
+                <div class="video-input fas">
+                    <b class="input-title">所属科目</b>
+                    <select name="" id=""></select>
+                </div>
+                <div class="video-input fas">
+                    <b class="input-title">老师昵称</b>
+                    <select name="" id=""></select>
+                </div>
+                <div class="video-input fjs input-btn" ng-show="0">
+                    <button class="btn btn-primary btn-right">+添加</button>
+                    <button class="btn btn-danger">删除</button>
+                </div>
+                <div class="input-btn"></div>
+                <div class="user-img">
+                    <b>头像</b>
+                    <div class="add-img">
+                        <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=151730489,986170799&fm=26&gp=0.jpg"
+                            id="images">
+                    </div>
+                </div>
+            </div>
+            <div class="video-row fas">
+                <b class="input-title">作&emsp;&emsp;者</b>
+                <input type="text" placeholder="请输入名称" class="input-box">
+            </div>
+            <div class="video-row fas">
+                <b class="input-title">分&emsp;&emsp;类</b>
+                <select name="" id=""></select>
+            </div>
+            <div class="video-row fas">
+                <b class="input-title">视频简介</b>
+                <textarea name="addIntro" id="videoInt" cols="100" rows="5"></textarea>
+            </div>
+            <div class="video-row fas">
+                <b class="input-title">视频链接</b>
+                <div class="video-url">
+                    <div class="url-block">
+                        <b class="url-title">URL</b>
+                        <input class="input-box" type="text" placeholder="请输入视频地址">
+                    </div>
+                    <div class="video-center">
+                        <video controls="controls" class="video-size" src="http://video.pearvideo.com/mp4/adshort/20181203/cont-1485922-13317207_adpkg-ad_hd.mp4"></video>
+                    </div>
+                </div>
+            </div>
+            <div class="video-row fas">
+                <b class="input-title">正&emsp;&emsp;文</b>
+                <div id="editor" style="width: 1200px;z-index: 1;">
+                </div>
+            </div>
+            <div class="video-btn">
+                <button class="btn btn-success">修改</button>
+                <button class="btn btn-primary off-btn">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

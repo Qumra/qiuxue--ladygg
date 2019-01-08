@@ -1,0 +1,49 @@
+<div id="myModal" class="vmodal">
+    <form name="formname" class="vmodal-content" novalidate>
+        <div class="vmodal-header">
+            <div class="vmodal-title">
+                <span class="hint">*</span>
+                <b>老师昵称</b>
+                <input type="text" name="nickName" ng-model="nickName" maxlength="10" required>
+            </div>
+            <span id="closeBtn" class="vclose" ng-click="close()">×</span>
+        </div>
+        <div class="vmodal-body">
+            <div class="preview">
+                <span class="hints">*</span>
+                <span>头&emsp;&emsp;像</span>
+                <div class="vmodal-img">
+                    <img ng-src="{{vsrc}}" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544383788319&di=8a2c1a6a4122de4384f9b5610d1dcd81&imgtype=0&src=http%3A%2F%2Fwww.corp001.com%2Ftemplates%2Fdefault%2Fshop%2Fimages%2Ferrors.jpg"
+                        id="images">
+                </div>
+            </div>
+            <input type="file" id="uoload" name="file" accept="image/*">
+            <button class="btn btn-primary file-btn">选择文件</button>
+            <table class="table-bordered">
+                <tr style="height: 30px">
+                    <th class="text-center">图片名</th>
+                    <th class="text-center">大小</th>
+                    <th class="text-center">进度</th>
+                    <th class="text-center">状态</th>
+                    <th class="text-center">操作</th>
+                </tr>
+                <tr style="text-align: center">
+                    <td ng-bind-html="name | lineFeed : 26"></td>
+                    <td>{{size}}</td>
+                    <td>
+                        <progress id="pro" value={{pro}} max='100'></progress>
+                    </td>
+                    <td>{{upload}}</td>
+                    <td style="padding:10px 0">
+                        <button id="load" class="btn btn-primary table-btn" ng-click="load()" ng-disabled="loaddisabled">上传</button>
+                        <button class="btn btn-warning table-btn" ng-click="del()">删除</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="vmodal-bottom">
+            <button class="btn btn-primary btn-left" ng-click="save()" ng-disabled="formname.$invalid||pro ==undefined">保存</button>
+            <button class="btn btn-danger" ng-click="off()">取消</button>
+        </div>
+    </form>
+</div>

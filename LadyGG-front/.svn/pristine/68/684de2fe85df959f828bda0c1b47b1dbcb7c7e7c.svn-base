@@ -1,0 +1,186 @@
+//声明变量myApp，给它Angular模块赖注入ui.router.
+var myApp = angular.module("myApp", ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui.router', 'oc.lazyLoad']);
+//声明把$stateProvider和$urlRouterProvider路由引擎作为函数参数传入，至此就可配置路由了
+myApp.config(function ($stateProvider, $urlRouterProvider) {
+        //默认页面
+        $urlRouterProvider.when("", "/login");
+        //封装懒加载
+        var Llt = function (http) {
+            return ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load(http)
+            }]
+        }
+        //路由
+        $stateProvider
+            .state("login", { //登录页
+                url: "/login",
+                templateUrl: "Template/Login/login.html",
+                controller: "loginCtrl",
+                controllerAs: "vm",
+                resolve: {
+                    loadMyCtrl: Llt(['js/controller/login.js', 'css/login.css'])
+                }
+            })
+            .state("backstage", { //后台页
+                url: "/backstage",
+                templateUrl: "Template/Backstage/backstage.html",
+                controller: "backstageCtrl",
+                controllerAs: "vm",
+                resolve: {
+                    loadMyCtrl: Llt(['js/controller/backstage.js', 'css/backstage.css'])
+                }
+            })
+            .state("backstage.welcome", { //欢迎页
+                url: "/welcome",
+                templateUrl: "Template/Backstage/welcome.html",
+                controller: "welcomeCtrl",
+                controllerAs: "vm",
+                resolve: {
+                    loadMyCtrl: Llt(['js/controller/welcome.js', 'css/welcome.css'])
+                }
+            })
+            .state("backstage.articleList", { //文章列表
+                url: "/articleList?page&size&praiseBegin&praiseEnd&collectionBegin&collectionEnd&author&title&classify&articleStatus",
+                templateUrl: "Template/Content/articleList.html",
+                controller: "articleListCtrl",
+                controllerAs: "vm",
+                resolve: {
+                    loadMyCtrl: Llt(['css/articleList.css', 'js/controller/articleList.js'])
+                }
+            })
+            .state("backstage.articleDetail", { //文章查看、编辑、新增
+                url: "/articleDetail?Cstatus&id",
+                templateUrl: "Template/Content/articleDetail.html",
+                controller: "articleDetailCtrl",
+                controllerAs: "vm",
+                resolve: {
+                    loadMyCtrl: Llt(['css/articleDetail.css', 'js/controller/articleDetail.js','js/plugins/modal.css'])
+                }
+            })
+            .state("backstage.videoList", { //视频列表
+                url: "/videoList?page&size&praiseBegin&praiseEnd&collectionBegin&collectionEnd&nickName&title&classify&grade&subject&videoStatus",
+                templateUrl: "Template/Content/videoList.html",
+                controller: "videoListCtrl",
+                controllerAs: "vm",
+                resolve: {
+                    loadMyCtrl: Llt(['css/videoList.css', 'js/controller/videoList.js',])
+                }
+            })
+            .state("backstage.videoDetail", { //视频查看、编辑、新增
+                url: "/videoDetail?Cstatus&id",
+                templateUrl: "Template/Content/videoDetail.html",
+                controller: "videoDetailCtrl",
+                controllerAs: "vm",
+                resolve: {
+                    loadMyCtrl: Llt(['css/videoDetail.css', 'js/controller/videoDetail.js', 'js/plugins/modal.css'])
+                }
+            })
+            .state("backstage.AC", { //账号管理
+                url: "/AC?page&size&roleId&accountName",
+                templateUrl: "Template/Administrator/AC.html",
+                controller: "ACCtrl",
+                controllerAs: "vm",
+                resolve: {
+                    loadMyCtrl: Llt(['css/AC.css', 'js/controller/AC.js'])
+                }
+            })
+            .state("backstage.ACDetail", { //账号新增、编辑
+                url: "/ACDetail?Cstatus&id",
+                templateUrl: "Template/ADministrator/ACDetail.html",
+                controller: "ACDetailCtrl",
+                controllerAs: "vm",
+                resolve: {
+                    loadMyCtrl: Llt(['css/ACDetail.css', 'js/controller/ACDetail.js'])
+                }
+            })
+            .state("backstage.RL", { //角色列表
+                url: "/RL?page&size",
+                templateUrl: "Template/ADministrator/RL.html",
+                controller: "RLCtrl",
+                controllerAs: "vm",
+                resolve: {
+                    loadMyCtrl: Llt(['css/RL.css', 'js/controller/RL.js'])
+                }
+
+            })
+            .state("backstage.RLDetail", { //角色新增、编辑
+                url: "/RLDetail?Cstatus&id",
+                templateUrl: "Template/ADministrator/RLDetail.html",
+                controller: "RLDetailCtrl",
+                controllerAs: "vm",
+                resolve: {
+                    loadMyCtrl: Llt(['css/RLDetail.css', 'js/controller/RLDetail.js'])
+                }
+            })
+            .state("backstage.PW", { //密码修改
+                url: "/PW",
+                templateUrl: "Template/ADministrator/PW.html",
+                controller: "PWCtrl",
+                controllerAs: "vm",
+                resolve: {
+                    loadMyCtrl: Llt(['css/PW.css', 'js/controller/PW.js'])
+                }
+            })
+            .state("backstage.MOD", { //模块管理
+                url: "/MOD?page&size",
+                templateUrl: "Template/ADministrator/MOD.html",
+                controller: "MODCtrl",
+                controllerAs: "vm",
+                resolve: {
+                    loadMyCtrl: Llt(['css/MOD.css', 'js/controller/MOD.js'])
+                }
+            })
+            .state("backstage.MODDetail", { //模块新增、编辑
+                url: "/MODDetail?Cstatus&id",
+                templateUrl: "Template/ADministrator/MODDetail.html",
+                controller: "MODDetailCtrl",
+                controllerAs: "vm",
+                resolve: {
+                    loadMyCtrl: Llt(['css/MODDetail.css', 'js/controller/MODDetail.js'])
+                }
+            })
+            .state("backstage.userList", { //用户列表
+                url: "/userList?page&size&scoreBegin&scoreEnd&nickName&id&grade&phone&email&userStatus&adress",
+                templateUrl: "Template/User/userList.html",
+                controller: "userListCtrl",
+                controllerAs: "vm",
+                resolve: {
+                    loadMyCtrl: Llt(['css/userList.css', 'js/controller/userList.js'])
+                }
+            })
+            .state("backstage.userDetail", { //用户列表新增
+                url: "/userDetail?id",
+                templateUrl: "Template/User/userDetail.html",
+                controller: "userDetailCtrl",
+                controllerAs: "vm",
+                resolve: {
+                    loadMyCtrl: Llt(['css/userDetail.css', 'js/controller/userDetail.js'])
+                }
+            })
+    })
+    //默认请求设置
+    .config(function ($httpProvider) {
+        // Set x-www-form-urlencoded Content-Type
+        $httpProvider.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+        $httpProvider.defaults.headers.patch['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+        $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+        $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+
+
+        // Set up global transformRequest function
+        $httpProvider.defaults.transformRequest = function (data) {
+            if (data === undefined) {
+                return data;
+            }
+            return $.param(data);
+        };
+    })
+    .run(function ($rootScope) {
+        //rootScope重置
+        $rootScope.reset = function (data) {
+            for (let i in data) {
+                data[i] = "";
+            }
+            return data
+        }
+    })

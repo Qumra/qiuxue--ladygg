@@ -1,0 +1,146 @@
+    angular.module("myApp")
+        //富文本框
+        .directive("richtext", function () {
+            return {
+                restrict: 'EA',
+                replace: true,
+                template: "<div id='editor' style='width:calc(100% - 100px);z-index: 1;'></div>",
+                scope: {
+                    vconTent: '=vcontent',
+                    vdisabled: '=vdisableds',
+                },
+                link: function (scope, element, attrs) {
+                    setTimeout(function () {
+                        var E = window.wangEditor
+                        var editor = new E('#editor')
+                        editor.create();
+                        editor.txt.html(scope.vconTent)
+                        scope.vdisabled === true ? editor.$textElem.attr('contenteditable', false) : editor.$textElem.attr('contenteditable', true);
+                        let c = $("#editor").children().last();
+                        let content = c.children();
+                        content.on('blur', function () {
+                            scope.vconTent = content.html();
+                            scope.$apply();
+                        })
+                        console.log(scope.vconTent)
+                    }, 1000)
+                    
+                }
+            }
+        })
+        //获取视频src和时长
+        .directive("videoself", function () {
+            return {
+                restrict: 'EA',
+                template: '<div class="video-center"><video controls id="videoselff" class="video-size"><source ng-src="{{vsrc}}"></source></video></div>',
+                replace: true,
+                scope: {
+                    videoTime: '=videotime',
+                    vsrc: '=',
+                },
+                link: function (scope) {
+                    $("#videoselff").on(
+                        "canplaythrough",
+                        function (event) {
+                            scope.videoTime = Math.floor(this.duration);
+                            scope.videoTime = Math.floor(scope.videoTime / 3600) + "'" + Math.floor(scope.videoTime % 3600 / 60) + '"' + Math.floor(scope.videoTime % 60)
+                        }
+                    );
+                }
+            };
+        })
+        .directive('modal', function () {
+            return {
+                restrict: 'EA',
+                replace: true,
+                templateUrl: 'js/plugins/modal.html',
+                scope: {
+                    close: '&',
+                    save: '&',
+                    load: '&',
+                    del: '&',
+                    off: '&',
+                    nickName: '=',
+                    file: "=",
+                    name: '=',
+                    size: '=',
+                    pro: "=",
+                    upload: "=",
+                    vsrc: "=",
+                    imgurl: "=",
+                    loaddisabled: "="
+                },
+                link: function (scope, element, attrs) {
+                    scope.name = "";
+                    scope.upload = '请选择上传图片';
+                    scope.loaddisabled = true;
+                    $("#uoload").on('change',
+                        function () {
+                            let file = $("#uoload").get(0).files[0];
+                            let formData = new FormData();
+                            formData.append('file', file)
+                            scope.file = formData;
+                            if (window.FileReader) {
+                                let fr = new FileReader();
+                                fr.readAsDataURL(file);
+                                fr.onloadend = function (e) {
+                                    // console.log(e)
+                                    scope.vsrc = e.target.result;
+                                    scope.name = file.name;
+                                    let size = file.size / 1024 / 1024;
+                                    scope.size = size.toFixed(2) + "MB";
+                                    scope.upload = "准备就绪";
+                                    scope.loaddisabled = false;
+                                    scope.$apply();
+                                }
+                            }
+                        });
+                }
+            }
+        })
+        .directive('vcover', function () {
+            return {
+                restrict: 'EA',
+                replace: true,
+                templateUrl: 'js/plugins/cover.html',
+                scope: {
+                    load: '&',
+                    del: '&',
+                    name: '=',
+                    size: '=',
+                    pro: "=",
+                    upload: "=",
+                    vsrc: "=",
+                    imgurl: "=",
+                    loaddisabled: "=",
+                    file: "=",
+                },
+                link: function (scope, element, attrs, ctrl) {
+                    scope.name = "";
+                    scope.upload = '请选择上传图片';
+                    scope.loaddisabled = true;
+                    $("#vuoload").on('change',
+                        function () {
+                            let file = $("#vuoload").get(0).files[0];
+                            let formData = new FormData();
+                            formData.append('file', file)
+                            scope.file = formData;
+                            if (window.FileReader) {
+                                let fr = new FileReader();
+                                fr.readAsDataURL(file);
+                                fr.onloadend = function (e) {
+                                    // console.log(e)
+                                    scope.vsrc = e.target.result;
+                                    scope.name = file.name;
+                                    let size = file.size / 1024 / 1024;
+                                    scope.size = size.toFixed(2) + "MB";
+                                    scope.upload = "准备就绪";
+                                    scope.loaddisabled = false;
+                                    scope.$apply();
+                                }
+                            }
+                        });
+
+                }
+            }
+        })

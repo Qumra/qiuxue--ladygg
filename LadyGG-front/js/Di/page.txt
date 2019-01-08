@@ -1,0 +1,92 @@
+        // //日历控件
+        // $scope.DateOptions = {
+        //     dateDisabled: disabled,
+        //     formatYear: 'YY',
+        //     minDate: $scope.DT,
+        //     startingDay: 1
+        // };
+        // $scope.dateOptions = {
+        //     dateDisabled: disabled,
+        //     formatYear: 'YY',
+        //     maxDate: $scope.dt,
+        //     startingDay: 1
+        // };
+        // // dateDisabled的函数
+        // function disabled(data) {
+        //     //这data参数为data里面的data
+        //     var date = data.date,
+        //         //这里mode的参数为data里面的mode
+        //         mode = data.mode;
+        //     //     下面代码为禁用周末2天不能选入
+        //     // return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
+        // }
+
+        // $scope.PopOpen = function () {
+        //     $scope.popup1.opened = true;
+        // }
+        // $scope.popOpen = function () {
+        //     $scope.popup2.opened = true;
+        // }
+
+        // $scope.setDate = function (year, month, day) {
+        //     $scope.DT = new Date(year, month, day);
+        //     $scope.dt = new Date(year, month, day);
+        // };
+
+        // //设置日期逻辑
+        // $scope.$watch("DT", function (designate, ddd) {
+        //     $scope.dateOptions.minDate = designate;
+        // })
+        // //设置日期逻辑
+        // $scope.$watch("dt", function (designate, ddd) {
+        //     $scope.DateOptions.maxDate = designate;
+        // })
+
+        // $scope.popup1 = {
+        //     opened: false
+        // };
+        // $scope.popup2 = {
+        //     opened: false
+        // };
+
+
+
+                  <p class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control box-pop" uib-datepicker-popup ng-model="DT" is-open="popup1.opened"
+                            datepicker-options="DateOptions" ng-click="PopOpen()" ng-required="true" close-text="关闭"
+                            clear-text="清空" current-text="今天" alt-input-formats="altInputFormats" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </div>
+                </p>
+                <div class="blank">~</div>
+                <p class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control box-pop" uib-datepicker-popup ng-model="dt" is-open="popup2.opened"
+                            datepicker-options="dateOptions" ng-click="popOpen()" ng-required="true" close-text="关闭"
+                            clear-text="清空" current-text="今天" alt-input-formats="altInputFormats" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </div>
+                </p>
+
+
+
+                       console.log(vm.params)
+        //请求数据
+        // let params = {
+        //     page: vm.params.page,
+        //     size: vm.params.size,
+        //     scoreBegin: vm.params.scoreBegin,
+        //     scoreEnd: vm.params.scoreEnd,
+        //     nickName: vm.params.nickName,
+        //     id: vm.params.id,
+        //     grade: vm.params.grade,
+        //     phone: vm.params.phone,
+        //     email: vm.params.email,
+        //     userStatus: vm.params.userStatus,
+        //     adress: vm.params.adress
+        // };

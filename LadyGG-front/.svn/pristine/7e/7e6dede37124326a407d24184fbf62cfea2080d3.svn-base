@@ -1,0 +1,42 @@
+.MOD-content {
+  margin-top: 20px;
+  border: solid 1px #cccccc;
+}
+
+.MOD-content .MOD-title {
+  padding: 0 30px;
+  height: 60px;
+  border-bottom: solid 1px #cccccc;
+  font-size: 20px;
+}
+
+.MOD-content .MOD-table {
+  padding: 15px 30px;
+  height: 600px;
+}
+
+.MOD-content .MOD-table .bordered {
+  border: 1px solid #ddd;
+}
+
+.MOD-content .MOD-table .bordered .son-border {
+  border: 1px solid #ddd;
+  vertical-align: middle;
+}
+
+.page-box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 50px;
+  height: 60px;
+}
+
+.page-box .page-go {
+  margin: 0 20px 0 10px;
+}
+
+.page-box .page-go .page-input {
+  width: 40px;
+  text-align: center;
+}

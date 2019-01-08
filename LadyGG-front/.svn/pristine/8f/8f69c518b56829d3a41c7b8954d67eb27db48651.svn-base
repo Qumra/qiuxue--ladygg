@@ -1,0 +1,357 @@
+angular.module("myApp")
+    .factory("userRes", function ($http, urlAPI) {
+        return {
+            //后台登陆
+            login: function (params) {
+                return $http({
+                    method: "post",
+                    url: urlAPI.login(),
+                    data: params,
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    transformRequest: function (data) {
+                        if (data === undefined) {
+                            return data
+                        }
+                        return JSON.stringify(data)
+                    }
+                })
+            },
+            //后台退出
+            logout: function () {
+                return $http.get(urlAPI.logout());
+            },
+            //获取用户列表
+            userList: function (params) {
+                return $http.get(urlAPI.userAll(), {
+                    params: params
+                });
+            },
+            //冻结or解冻
+            userFreeze: function (id) {
+                return $http.put(urlAPI.userFreeze(id));
+            },
+            //获取用户详情
+            userDetail: function (id) {
+                return $http.get(urlAPI.userAll(id));
+            }
+        }
+    })
+    .factory('contentRes', function ($http, urlAPI) {
+        return {
+            //获取视频列表
+            videoList: function (params) {
+                return $http.get(urlAPI.videoAll(), {
+                    params: params
+                })
+            },
+            //上架or下架
+            videoUpDown: function (id) {
+                return $http.put(urlAPI.videoUpDown(id));
+            },
+            //查看视频
+            videoLook: function (id) {
+                return $http.get(urlAPI.videoAll(id));
+            },
+            //新增视频
+            videoAdd: function (params) {
+                return $http({
+                    method: "post",
+                    url: urlAPI.videoAll(),
+                    data: params,
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    transformRequest: function (data) {
+                        if (data === undefined) {
+                            return data
+                        }
+                        return JSON.stringify(data)
+                    }
+                })
+            },
+            //编辑视频
+            videoPut: function (id, params) {
+                return $http({
+                    method: "put",
+                    url: urlAPI.videoAll(id),
+                    data: params,
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    transformRequest: function (data) {
+                        if (data === undefined) {
+                            return data
+                        }
+                        return JSON.stringify(data)
+                    }
+                })
+            },
+            //获取文章列表
+            articleList: function (params) {
+                return $http.get(urlAPI.articleList(), {
+                    params: params
+                })
+            },
+             //上架or下架
+             articleUpDown: function (id) {
+                return $http.put(urlAPI.articleUpDown(id));
+            },
+             //查看文章
+             articleLook: function (id) {
+                return $http.get(urlAPI.articleAll(id));
+            },
+             //新增文章
+             articleAdd: function (params) {
+                return $http({
+                    method: "post",
+                    url: urlAPI.articleAll(),
+                    data: params,
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    transformRequest: function (data) {
+                        if (data === undefined) {
+                            return data
+                        }
+                        return JSON.stringify(data)
+                    }
+                })
+            },
+            //编辑文章
+            articlePut: function (id, params) {
+                return $http({
+                    method: "put",
+                    url: urlAPI.articleAll(id),
+                    data: params,
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    transformRequest: function (data) {
+                        if (data === undefined) {
+                            return data
+                        }
+                        return JSON.stringify(data)
+                    }
+                })
+            },
+        }
+    })
+    .factory('teacherRes', function ($http, urlAPI) {
+        return {
+            //get获取所有教师信息
+            teacherAll: function () {
+                return $http.get(urlAPI.teacherAll());
+            },
+            //post新增老师信息
+            teacherAdd: function (params) {
+                return $http({
+                    method: "post",
+                    url: urlAPI.teacherAll(),
+                    data: params,
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    transformRequest: function (data) {
+                        if (data === undefined) {
+                            return data
+                        }
+                        return JSON.stringify(data)
+                    }
+                })
+            },
+            //Delete删除老师信息
+            teacherDel: function (id) {
+                return $http.delete(urlAPI.teacherAll(id))
+            }
+        }
+    })
+    .factory('imageRes', function ($http, urlAPI) {
+        return {
+            //图片上传
+            imgLoad: function (modules, fr) {
+                return $http({
+                    method: "post",
+                    url: urlAPI.imgLoad(modules),
+                    data: fr,
+                    headers: {
+                        'Content-Type': undefined
+                    },
+                    transformRequest: function (data) {
+                        if (data === undefined) {
+                            return data
+                        }
+                        return data
+                    }
+                });
+            }
+        }
+    })
+    .factory('moduleRes', function ($http, urlAPI) {
+        return {
+            //获取account列表
+            account: function (params) {
+                return $http.get(urlAPI.account(), {
+                    params
+                });
+            },
+            //获取account详细
+            accountLook: function (id) {
+                return $http.get(urlAPI.account(id));
+            },
+            //新增account
+            accountAdd: function (params) {
+                return $http({
+                    method: "post",
+                    url: urlAPI.account(),
+                    data: params,
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    transformRequest: function (data) {
+                        if (data === undefined) {
+                            return data
+                        }
+                        return JSON.stringify(data)
+                    }
+                })
+            },
+            //编辑account
+            accountPut: function (id, params) {
+                return $http({
+                    method: "put",
+                    url: urlAPI.account(id),
+                    data: params,
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    transformRequest: function (data) {
+                        if (data === undefined) {
+                            return data
+                        }
+                        return JSON.stringify(data)
+                    }
+                })
+            },
+            //删除account
+            accountDel: function (id) {
+                return $http.delete(urlAPI.account(id))
+            },
+            //获取所有角色信息
+            roleAll: function (params) {
+                return $http.get(urlAPI.roleAll(), {
+                    params
+                });
+            },
+            //获取单个角色信息
+            roldeLook: function (id, params) {
+                return $http.get(urlAPI.roleAll(id), {
+                    params
+                });
+            },
+            //修改role
+            rolePut: function (id, params) {
+                return $http({
+                    method: "put",
+                    url: urlAPI.roleAll(id),
+                    data: params,
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    transformRequest: function (data) {
+                        if (data === undefined) {
+                            return data
+                        }
+                        return JSON.stringify(data)
+                    }
+                })
+            },
+            //新增role
+            roleAdd: function (params) {
+                return $http({
+                    method: "post",
+                    url: urlAPI.roleAll(),
+                    data: params,
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    transformRequest: function (params) {
+                        if (params === undefined) {
+                            return params
+                        }
+                        return JSON.stringify(params)
+                    }
+                })
+            },
+            //删除role
+            roleDel: function (id) {
+                return $http.delete(urlAPI.roleAll(id))
+            },
+            //修改PW密码
+            passPut: function (params) {
+                return $http({
+                    method: "put",
+                    url: urlAPI.password(),
+                    data: params,
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    transformRequest: function (data) {
+                        if (data === undefined) {
+                            return data
+                        }
+                        return JSON.stringify(data)
+                    }
+                })
+            },
+            //获取所有模块
+            moduleAll: function (params) {
+                return $http.get(urlAPI.moduleAll(), {
+                    params
+                });
+            },
+            //获取详细模块
+            moduleLook: function (id) {
+                return $http.get(urlAPI.moduleAll(id));
+            },
+            //新增模块
+            moduleAdd: function (params) {
+                return $http({
+                    method: "post",
+                    url: urlAPI.moduleAll(),
+                    data: params,
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    transformRequest: function (params) {
+                        if (params === undefined) {
+                            return params
+                        }
+                        return JSON.stringify(params)
+                    }
+                })
+            },
+            //编辑模块
+            modulePut: function (id, params) {
+                return $http({
+                    method: "put",
+                    url: urlAPI.moduleAll(id),
+                    data: params,
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    transformRequest: function (data) {
+                        if (data === undefined) {
+                            return data
+                        }
+                        return JSON.stringify(data)
+                    }
+                })
+            },
+            //删除模块
+            moduleDel: function (id) {
+                return $http.delete(urlAPI.moduleAll(id))
+            }
+        }
+    })

@@ -1,0 +1,58 @@
+.RLD-box {
+    padding-bottom: 100px;
+    border: solid 1px #e9e9e9;
+    border-radius: 8px;
+
+    .RLD-title {
+        padding: 0 30px;
+        height: 40px;
+        background-color: #616663;
+        color: #fff;
+    }
+
+    .RLD-word {
+        padding: 10px 20px;
+
+        .RLD-input {
+            margin: 10px 0;
+            padding: 10px 30px;
+
+            .input-titie {
+                margin-right: 2%;
+                font-size: 14px;
+            }
+
+            .input-box {
+                width: 40%;
+                height: 30px;
+            }
+        }
+
+        .RLD-che {
+            padding: 20px 105px;
+
+            .che-father {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .che-top {
+                font-size: 18px;
+
+                b {
+                    margin-left: 20px;
+                }
+            }
+        }
+
+        .RLD-btns {
+            padding-left: 50px;
+
+            .RLD-btn {
+                margin: 50px 0 0 60px;
+                width: 120px;
+                height: 36px;
+            }
+        }
+    }
+}

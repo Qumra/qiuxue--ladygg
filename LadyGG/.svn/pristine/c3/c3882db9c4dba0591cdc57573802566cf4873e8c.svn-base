@@ -1,0 +1,183 @@
+<template>
+  <div class="myVideo">
+    <!-- v-for="item in info"   -->
+    <div class="videoList" v-for="item in info" :key="item.id ">
+      <div class="head">
+        <div class="img">
+          <img src="../assets/images/touxiang.png" alt>
+        </div>
+        <div class="txt">
+          <p class="teacher">{{item.nickName}}</p>
+          <p class="jianjie" v-if="showContent">
+            <span v-html="txtFormat(item.summary)"></span>
+            <span @click="unfold" style="color:blue;" v-if="item.summary.length > 27">...更多</span>
+          </p>
+          <p class="jianjie" v-else>
+            <span>{{item.summary}}</span>
+            <span @click="unfold" style="color:blue;margin-left:.3rem">收起</span>
+          </p>
+        </div>
+      </div>
+      <router-link class="middle" tag="div" to="/videoDetail">
+        <div class="mask1">
+          <img src="../assets/images/Layer.png" alt>
+          <p class="title">{{item.title}}</p>
+          <p class="time">{{item.videoTime}}</p>
+          <button>立即观看</button>
+        </div>
+        <img class="banner" src="../assets/images/successBg.png" alt>
+      </router-link>
+      <div class="bottom">
+        <div class="left">
+          <img class="collect" src="../assets/images/collect.png" alt @click="collect">
+          <span>{{item.collection}}</span>
+          <img class="praise" src="../assets/images/heart.png" alt @click="praise">
+          <span>{{item.praise}}</span>
+        </div>
+        <div class="right">
+         {{item.updateAt}}
+          <img src="../assets/images/arrow.png" alt>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      info: [],
+      showContent: true,
+      jianjie:
+        "集合是个什么鬼，你还不知道？赶紧看看这个视频补救一下吧，集合是个什么鬼，你还不知道？赶紧看看这个视频补救一下吧111"
+    };
+  },
+
+  // created(){
+  //   this.getInfo(1)
+  // },
+  methods: {
+    unfold() {
+      this.showContent = !this.showContent;
+    },
+    txtFormat: function(data) {
+      //   var output= data.substring(0, 27)+'<br>'+data.substring(27,52);
+      return data.substring(0, 27);
+    },
+    getInfo(url, params) {
+      let that = this;
+      this.axios
+        .get(url, { params: params })
+        .then(response => {
+          console.log(response.data.data.article);
+          if (response.data.code == 0) {
+            that.info = response.data.data.article;
+          } else {
+            alert(response.data.message);
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    collect() {},
+    praise() {}
+  }
+};
+</script>
+<style lang="scss" scoped>
+@import "../assets/style/public";
+.myVideo {
+  .videoList {
+    padding: 0.2rem;
+    background-color: #fff;
+    margin-bottom: 0.3rem;
+    color: #b8b8b8;
+    font-size: 0.3rem;
+    .head {
+      display: flex;
+      margin-bottom: 0.2rem;
+      .img {
+        background-color: #b8b8b8;
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        margin-right: 0.1rem;
+        img {
+          width: 0.8rem;
+        }
+      }
+      .txt {
+        .teacher {
+          font-size: 0.38rem;
+          color: #333;
+        }
+        .jianjie {
+          font-size: 0.36rem;
+        }
+      }
+    }
+    .middle {
+      position: relative;
+      height: 3.5rem;
+      margin-bottom: 0.2rem;
+      .mask1 {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        text-align: center;
+        // z-index: 98;
+        img {
+          width: 0.6rem;
+          position: absolute;
+          top: 5%;
+          right: 5%;
+        }
+        .title {
+          font-size: 0.4rem;
+          margin-top: 10%;
+        }
+        .time {
+          margin-top: 5%;
+        }
+        button {
+          color: #fff;
+          background-color: transparent;
+          border: 2px solid #fff;
+          padding: 0.1rem;
+          margin-top: 5%;
+        }
+      }
+      .banner {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .left {
+        .collect {
+          width: 0.3rem;
+        }
+        .praise {
+          width: 0.3rem;
+        }
+        span {
+          margin-right: 0.2rem;
+        }
+      }
+      .right {
+        img {
+          width: 0.15rem;
+          height: 0.24rem;
+        }
+      }
+    }
+  }
+}
+</style>

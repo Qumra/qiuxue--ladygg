@@ -1,0 +1,25 @@
+angular.module("myApp")
+    .factory("urlAPI", function () {
+        return {
+            //get用户列表
+            userList: function () {
+                return '/a/a/user';
+            },
+            //put用户冻结or解冻
+            userFreeze: function (id) {
+                return '/a/a/user/status/' + id;
+            },
+            //get单个用户详情
+            userDetail: function (id) {
+                return '/a/a/user/' + id;
+            },
+            //get获取视频列表
+            videoList: function () {
+                return '/a/a/video';
+            },
+            //put视频上架or下架
+            videoUpDown: function (id) {
+                return '/a/a/video/status/' + id;
+            }
+        }
+    })

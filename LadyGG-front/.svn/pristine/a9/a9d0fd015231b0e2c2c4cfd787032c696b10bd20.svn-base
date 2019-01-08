@@ -1,0 +1,33 @@
+<div class="pas">
+    <div class="MODD-box">
+        <div class="MODD-title fas top-rou">
+            修改密码
+        </div>
+        <div class="MODD-word">
+            <div class="MODD-input fas">
+                <b class="input-titie">名称*</b>
+                <input type="text" placeholder="请输入名称" class="input-box">
+            </div>
+            <div class="MODD-input fas">
+                <b class="input-titie">Menuld</b>
+                <input type="text" placeholder="请输入MenuID,只能是英文" class="input-box">
+            </div>
+            <div class="MODD-input fas">
+                <b class="input-titie">URL地址</b>
+                <input type="text" placeholder="请输入模块对应的url地址 " class="input-box">
+            </div>
+            <div class="MODD-input fas">
+                <b class="input-titie">父模块ID</b>
+                <input type="text" placeholder="请输入父模块ID" class="input-box">
+            </div>
+            <div class="MODD-input fas">
+                <b class="input-titie">模块类别</b>
+                <input type="text" placeholder="请输入模块类别" class="input-box">
+            </div>
+            <div class="MODD-input fas">
+                <button class="btn btn-primary MODD-btn">保存</button>
+                <button class="btn btn-primary MODD-btn">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

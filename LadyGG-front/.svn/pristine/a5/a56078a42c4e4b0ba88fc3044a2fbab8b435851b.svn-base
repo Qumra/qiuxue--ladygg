@@ -1,0 +1,107 @@
+<div class="pas">
+    <div class="video-box">
+        <div class="box-top fjs">
+            <div class="fjs">
+                <b class="input-title">标&emsp;&emsp;题</b>
+                <input class="input-box" type="text" ng-model="vm.params.title">
+            </div>
+            <div class="fjs">
+                <b class="input-title">分&emsp;类</b>
+                <select class="classify" ng-model="vm.params.classify" ng-options="value as name for (value,name) in vm.classifySelect">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+            <div class="fjs">
+                <b class="input-title">所属年级</b>
+                <select class="grade" ng-model="vm.params.grade" ng-options="value as name for (value,name) in vm.gradeSelect">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+        </div>
+        <div class="box-cen fjs">
+            <div class="fjs">
+                <b class="input-title">所属科目</b>
+                <select class="subject" ng-model="vm.params.subject" ng-options="value as name for (value,name) in vm.subjectSelect">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+            <div class="fjs">
+                <b class="input-title">点赞数</b>
+                <input class="input-box praise" type="text" ng-model="vm.params.praiseBegin" ng-class="{'input-border':vm.params.praiseBegin>vm.params.praiseEnd}">
+                <div class="blank" ng-class="{'red':vm.params.praiseBegin>vm.params.praiseEnd}">~</div>
+                <input class="input-box praise" type="text" ng-model="vm.params.praiseEnd" ng-class="{'input-border':vm.params.praiseBegin>vm.params.praiseEnd}">
+            </div>
+            <div class="fjs">
+                <b class="input-title">收藏数&emsp;</b>
+                <input class="input-box collection" type="text" ng-model="vm.params.collectionBegin" ng-class="{'input-border':vm.params.collectionBegin>vm.params.collectionEnd}">
+                <div class="blank" ng-class="{'red':vm.params.collectionBegin>vm.params.collectionEnd}">~</div>
+                <input class="input-box collection" type="text" ng-model="vm.params.collectionEnd" ng-class="{'input-border':vm.params.collectionBegin>vm.params.collectionEnd}">
+            </div>
+        </div>
+        <div class="box-bottom fjs">
+            <div class="fjs">
+                <b class="input-title">老&emsp;&emsp;师</b>
+                <input class="input-box" type="text" ng-model="vm.params.nickName">
+            </div>
+            <div class="fjs">
+                <b class="input-title">状&emsp;态</b>
+                <select class="videoStatus" ng-model="vm.params.videoStatus" ng-options="value as name for (value,name) in vm.videoStatusSelect">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+            <div class="rts">
+                <button class="btn btn-primary" ng-click="vm.reset()">重置</button>
+                <button class="btn btn-success rts-btn" ng-click="vm.search()">搜索</button>
+            </div>
+        </div>
+    </div>
+    <div class="video-content">
+        <div class="content-title fjs">
+            <p>视频管理</p>
+        </div>
+        <div class="video-table">
+            <table class="table bordered">.
+                <tr class="tr-back">
+                    <th class="text-center son-vertical">序号</th>
+                    <th class="text-center son-vertical">标题</th>
+                    <th class="text-center son-vertical">分类</th>
+                    <th class="text-center son-vertical">所属年级</th>
+                    <th class="text-center son-vertical">所属科目</th>
+                    <th class="text-center son-vertical">老师</th>
+                    <th class="text-center son-vertical">收藏数</th>
+                    <th class="text-center son-vertical">点赞数</th>
+                    <th class="text-center son-vertical">编辑时间</th>
+                    <th class="text-center son-vertical">状态</th>
+                    <th class="text-center son-vertical">操作</th>
+                </tr>
+                <tr class="text-center" ng-repeat="list in vm.video">
+                    <td class="son-vertical">{{$index +1}}</td>
+                    <td ng-bind-html="list.title | lineFeed : 30" class="son-vertical"></td>
+                    <td class="son-vertical">{{list.classify | classify}}</td>
+                    <td class="son-vertical">{{list.grade | grade}}</td>
+                    <td class="son-vertical">{{list.subject |subject}}</td>
+                    <td ng-bind-html="list.nickName | lineFeed : 10" class="son-vertical"></td>
+                    <td class="son-vertical">{{list.collection}}</td>
+                    <td class="son-vertical">{{list.praise}}</td>
+                    <td class="son-vertical">{{list.updateAt |date : 'yyyy-MM-dd hh:mm:ss'}}</td>
+                    <td class="son-vertical">{{list.videoStatus | videoStatus}}</td>
+                    <td class="son-vertical">
+                        <button class="btn btn-warning" ng-click="vm.examine(list.id)">查看</button>
+                        <button class="btn btn-primary">编辑</button>
+                        <button class="btn btn-danger" ng-click="vm.UpDown(list.id)">下架</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="page-box" novalidate>
+            <uib-pagination total-items="vm.total" ng-change="vm.pagechang()" ng-model="vm.params.page" max-size="vm.maxSize"
+                previous-text="上一页" next-text="下一页" boundary-link-numbers="true"></uib-pagination>
+            <div class="page-go">
+                去第
+                <input class="page-input" type="number" ng-model="vm.params.inputPage" oninput="value=value.replace(/[^\d]/g,'')">
+                页
+            </div>
+            <button class="btn btn-primary" ng-click="vm.submit()" ng-disabled="vm.params.inputPage > vm.Tpage">确定</button>
+        </div>
+    </div>
+</div>

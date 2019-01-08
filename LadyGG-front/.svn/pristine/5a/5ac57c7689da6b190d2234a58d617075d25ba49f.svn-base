@@ -1,0 +1,37 @@
+angular.module("myApp")
+    .factory("userRes", function ($http, urlAPI) {
+        return {
+            //获取用户列表
+            userList: function (params) {
+                return $http.get(urlAPI.userList(), {
+                    params: params
+                });
+            },
+            //冻结or解冻
+            userFreeze: function (id) {
+                return $http.put(urlAPI.userFreeze(id));
+            },
+            //获取用户详情
+            userDetail: function (id) {
+                return $http.get(urlAPI.userDetail(id));
+            }
+        }
+    })
+    .factory('contentRes', function ($http, urlAPI) {
+        return {
+            //获取视频列表
+            videoList: function (params) {
+                return $http.get(urlAPI.videoList(), {
+                    params: params
+                })
+            },
+            videoUpDown: function (id) {
+                return $http.put(urlAPI.videoUpDown(id));
+            },
+            articleList:function(params){
+                return $http.get(urlAPI.articleList(), {
+                    params: params
+                })
+            }
+        }
+    })

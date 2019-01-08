@@ -1,0 +1,62 @@
+<div class="pas">
+    <div class="acticle-box">
+        <div class="acticle-title fas top-rou">
+            文章编辑
+        </div>
+        <div class="acticle-word">
+            <div class="acticle-input fas">
+                <b class="input-titie">标题</b>
+                <input type="text" placeholder="请输入名称" class="input-box">
+            </div>
+            <div class="acticle-input fas">
+                <b class="input-titie">分类</b>
+                <select name="" id=""></select>
+            </div>
+            <div class="acticle-input fas">
+                <b class="input-titie">封面</b>
+                <input type="file" id="uoload" name="file" class="acticle-file" accept="image/*" ng-model="file"
+                    onchange="angular.element(this).scope().inputchange()">
+                <button type="button" class="btn btn-primary acticle-btn">上传效果图</button>
+                <span>（上传文件在5M以内）</span>
+            </div>
+            <div class="acticle-table">
+                <table class="table bordered">
+                    <tr class="father-border">
+                        <th class="text-center son-border">图片名</th>
+                        <th class="text-center son-border">文件大小</th>
+                        <th class="text-center son-border">进度</th>
+                        <th class="text-center son-border">结果</th>
+                        <th class="text-center son-border">操作</th>
+                    </tr>
+                    <tr>
+                        <th class="text-center son-border">图片名</th>
+                        <th class="text-center son-border">图片名</th>
+                        <th class="text-center son-border">图片名</th>
+                        <th class="text-center son-border">图片名</th>
+                        <th class="text-center son-border">
+                            <button class="btn btn-success">上传</button>
+                            <button class="btn btn-danger">删除</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+            <div class="acticle-input fas">
+                <b class="input-titie">作者</b>
+                <input type="text" placeholder="请输入名称" class="input-box">
+            </div>
+            <div class="acticle-input fas">
+                <b class="input-titie">摘要</b>
+                <input type="text" placeholder="请输入名称" class="input-box">
+            </div>
+            <div class="acticle-input fas">
+                <b class="input-titie">正文</b>
+                <div id="editor" style="width: 1200px;z-index: 1;">
+                </div>
+            </div>
+            <div class="acticle-btn">
+                <button class="btn btn-success">修改</button>
+                <button class="btn btn-primary">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

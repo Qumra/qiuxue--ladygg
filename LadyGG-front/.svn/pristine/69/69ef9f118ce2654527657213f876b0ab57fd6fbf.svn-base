@@ -1,0 +1,74 @@
+p {
+    margin: 0;
+}
+
+input[type="checkbox"] {
+    margin: 0;
+}
+
+.top-rou {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.pas {
+    position: absolute;
+    top: 130px;
+    left: 280px;
+    right: 30px;
+}
+
+.fjs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fas {
+    display: flex;
+    align-items: center;
+}
+
+.ffj {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.blank {
+    margin: 0 10px;
+    width: 9px;
+}
+
+.input-title {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.input-box {
+    width: 184px;
+    height: 30px;
+    text-align: center;
+}
+
+.red {
+    color: #ff0000;
+}
+
+.gray {
+    background-color: rgba(220, 220, 220, .6)
+}
+
+.input-border {
+    border: solid 1px #ff0000;
+}
+
+option {
+    text-align: center;
+}
+
+select {
+    padding: 0 50px;
+    width: auto;
+    height: 30px;
+}

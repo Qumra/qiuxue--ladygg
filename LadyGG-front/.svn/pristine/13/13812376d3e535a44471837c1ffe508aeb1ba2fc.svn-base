@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>checkbox的全选和取消全选</title>
+    <script type="text/javascript">
+        //页面加载的时候,所有的复选框都是未选中的状态
+        window.onload = function () {
+            //1.获取checkbo的元素对象
+            var chElt = document.getElementById("chElt");
+            //3.若checked=true,将所有的复选框选中,checked=false,将所有的复选框取消
+            var allCheck = document.getElementsByName("interest");
+            checkOrCancelAll = function () {
+                for (i = 0; i < allCheck.length; i++) {
+                    allCheck[i].checked = chElt.checked;
+                }
+            }
+
+            for (i = 0; i < allCheck.length; i++) {
+                allCheck[i].addEventListener("click", function () {
+                    var a = allCheck;
+                    var selCount = 0;
+                    var unSelCount = 0;
+                    for (var i = 0; i < a.length; i++) {
+                        if (a[i].checked == true) {
+                            selCount++;
+                        }
+                        if (a[i].checked == false) {
+                            unSelCount++;
+                        }
+                        if (selCount == a.length) {
+                            chElt.checked = true;
+                        }
+                        if (unSelCount > 0) {
+                            chElt.checked = false;
+                        }
+                    }
+                })
+            }
+
+            over = function (e) {
+                var a = allCheck;
+                var bc = [];
+                for (i = 0, arr = a; i < arr.length; i++) {
+                    if (a[i].checked == true) {
+                        bc.push(allCheck[i])
+                    }
+                    console.log(bc)
+                }
+            }
+        }
+    </script>
+</head>
+
+<body style="padding-top:300px;margin-left:300px;">
+    <input type="checkbox" id="chElt" onclick="checkOrCancelAll()" /><span id="mySpan">全选</span><br />
+    学习<input type="checkbox" name="interest" value="study" />
+    阅读<input type="checkbox" name="interest" value="read" />
+    运动<input type="checkbox" name="interest" value="sport" />
+    旅行<input type="checkbox" name="interest" value="travel" />
+    绘画<input type="checkbox" name="interest" value="draw" />
+    音乐<input type="checkbox" name="interest" value="music" />
+    <input type="button" onclick="over()" value="确定">
+</body>
+
+</html>

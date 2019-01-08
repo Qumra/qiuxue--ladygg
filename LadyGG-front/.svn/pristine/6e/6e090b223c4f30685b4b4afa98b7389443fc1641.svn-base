@@ -1,0 +1,29 @@
+.admin-content {
+    margin-top: 20px;
+    border: solid 1px #cccccc;
+
+    .content-title {
+        padding: 0 30px;
+        height: 60px;
+        border-bottom: solid 1px #cccccc;
+        font-size: 20px;
+
+        p {
+            font-weight: bold;
+        }
+
+    }
+
+    .admin-table {
+        padding: 15px 30px;
+        height: 600px;
+
+        .bordered {
+            border: 1px solid #ddd;
+
+            .son-border {
+                border: 1px solid #ddd;
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+<template>
+    <div class="myLiterature">
+        <div class="acticle">
+            <div class="img">
+                <img src="../assets/images/touxiang.png" alt="">
+            </div>
+        </div>
+        <div class="txt">
+            <p class="title"></p>
+        </div>
+    </div>
+</template>
+<script>
+    
+</script>
+<style lang="scss" scoped>
+@import "../assets/style/public";
+.myLiterature {
+    .acticle {
+        padding: 0 .2rem;
+        margin-top: .2rem;
+        background-color: #fff;
+    }
+}
+</style>

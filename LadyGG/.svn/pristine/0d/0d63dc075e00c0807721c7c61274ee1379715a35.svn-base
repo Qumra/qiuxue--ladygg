@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><title>求学大战</title><link href=/css/chunk-02b010d8.836a4cb3.css rel=prefetch><link href=/css/chunk-128f1a36.b0ab7fe4.css rel=prefetch><link href=/css/chunk-2872316c.ec9725ba.css rel=prefetch><link href=/css/chunk-2fffdec6.fcf7ba63.css rel=prefetch><link href=/css/chunk-3446b47a.d8bc6222.css rel=prefetch><link href=/css/chunk-35d8a55b.863b8990.css rel=prefetch><link href=/css/chunk-442aafa1.5d9734d3.css rel=prefetch><link href=/css/chunk-44b4adaa.5adbba1a.css rel=prefetch><link href=/css/chunk-4551d11f.7d799f26.css rel=prefetch><link href=/css/chunk-60bc20fa.c8e9e369.css rel=prefetch><link href=/css/chunk-69f95307.b5f8cde4.css rel=prefetch><link href=/css/chunk-6b7ffdf8.193034e0.css rel=prefetch><link href=/css/chunk-72da4e56.3ecd79c0.css rel=prefetch><link href=/css/chunk-aec0ab7e.b0d59a0d.css rel=prefetch><link href=/css/chunk-f7cdc426.54b56189.css rel=prefetch><link href=/js/chunk-02b010d8.9e9ff704.js rel=prefetch><link href=/js/chunk-128f1a36.12fd175a.js rel=prefetch><link href=/js/chunk-2872316c.81853ec2.js rel=prefetch><link href=/js/chunk-2fffdec6.06f21d41.js rel=prefetch><link href=/js/chunk-3446b47a.3e70cfd3.js rel=prefetch><link href=/js/chunk-35d8a55b.6d67b633.js rel=prefetch><link href=/js/chunk-442aafa1.0be33d08.js rel=prefetch><link href=/js/chunk-44b4adaa.346c90fb.js rel=prefetch><link href=/js/chunk-4551d11f.61a5e5b8.js rel=prefetch><link href=/js/chunk-60bc20fa.18ddb703.js rel=prefetch><link href=/js/chunk-69f95307.67622f9b.js rel=prefetch><link href=/js/chunk-6b7ffdf8.b88bb335.js rel=prefetch><link href=/js/chunk-72da4e56.a120d500.js rel=prefetch><link href=/js/chunk-aec0ab7e.ced9fe30.js rel=prefetch><link href=/js/chunk-f7cdc426.0fff70c2.js rel=prefetch><link href=/css/app.9eb3195e.css rel=preload as=style><link href=/css/chunk-vendors.779f7d1d.css rel=preload as=style><link href=/js/app.48041d69.js rel=preload as=script><link href=/js/chunk-vendors.56f26316.js rel=preload as=script><link href=/css/chunk-vendors.779f7d1d.css rel=stylesheet><link href=/css/app.9eb3195e.css rel=stylesheet></head><body><noscript><strong>We're sorry but vue-cli-demo doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script src=/js/chunk-vendors.56f26316.js></script><script src=/js/app.48041d69.js></script></body><script>fnResize()
+  window.onresize = function () {
+    fnResize()
+  }
+
+  function fnResize() {
+    var deviceWidth = document.documentElement.clientWidth || window.innerWidth
+    if (deviceWidth >= 750) {
+      deviceWidth = 750
+    }
+    if (deviceWidth <= 320) {
+      deviceWidth = 320
+    }
+    document.documentElement.style.fontSize = (deviceWidth / 7.5) + 'px'
+  }</script></html>
